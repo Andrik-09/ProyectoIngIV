@@ -12,3 +12,15 @@ Esta es una **plantilla** basada en [MkDocs](https://www.mkdocs.org/) + [Materia
    site_name: Documentación del Curso
    theme:
      name: material
+   ```
+2. **Agrega tus páginas** dentro de la carpeta `docs/` (archivos `.md`).
+3. **Levanta el sitio localmente** con:
+   ```bash
+   mkdocs serve
+   ```
+
+---
+
+## 📅 Avance por semanas
+
+- [**Semana 1** — Ideación con el método SCAMPER](semana1.md)
