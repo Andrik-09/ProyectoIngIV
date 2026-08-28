@@ -1,4 +1,4 @@
-site_name: Plantilla para Documentación
+site_name: Proyecto Ingeniería IV
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -26,15 +26,18 @@ markdown_extensions:
 # Use the ReadTheDocs theme
 theme:
   name: material
-  highlightjs: true 
+  highlightjs: true
   palette:
-      - scheme: default
+      - scheme: slate
         primary: red
+        accent: red
 
   features:
     - content.code.copy
     - content.tooltips
+    - navigation.top
 extra_css:
   - https://use.fontawesome.com/releases/v6.5.2/css/all.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css
+  - stylesheets/extra.css
 

@@ -1,0 +1,190 @@
+/* ==========================================================================
+   Tema propio — Paleta Ibero Puebla (gris / rojo / negro / blanco)
+   Sobrescribe las variables de Material for MkDocs (slate) y define los
+   componentes usados en la página principal (hero, tarjeta "Sobre mí",
+   tarjetas de semanas).
+   ========================================================================== */
+
+:root,
+[data-md-color-scheme="slate"] {
+  --ibero-red: #E3000F;
+  --ibero-red-light: #ff3b3b;
+  --ibero-red-dark: #B3000C;
+  --bg-black: #121212;
+  --bg-dark-gray: #1E1E1E;
+  --bg-light-gray: #2D2D2D;
+  --text-white: #FFFFFF;
+  --text-gray: #CCCCCC;
+  --border-color: #444444;
+
+  /* Material core */
+  --md-default-bg-color: var(--bg-black);
+  --md-default-fg-color: var(--text-white);
+  --md-default-fg-color--light: var(--text-gray);
+  --md-default-fg-color--lighter: #8A8A8A;
+  --md-default-fg-color--lightest: var(--border-color);
+
+  --md-primary-fg-color: var(--ibero-red);
+  --md-primary-fg-color--light: var(--ibero-red-light);
+  --md-primary-fg-color--dark: var(--ibero-red-dark);
+  --md-primary-bg-color: var(--text-white);
+  --md-primary-bg-color--light: var(--text-white);
+
+  --md-accent-fg-color: var(--ibero-red);
+  --md-accent-fg-color--transparent: rgba(227, 0, 15, 0.1);
+  --md-accent-bg-color: var(--text-white);
+
+  --md-typeset-color: var(--text-gray);
+  --md-typeset-a-color: var(--ibero-red);
+
+  --md-code-bg-color: var(--bg-black);
+  --md-code-fg-color: var(--text-white);
+
+  --md-footer-bg-color: var(--bg-dark-gray);
+  --md-footer-bg-color--dark: var(--bg-black);
+  --md-footer-fg-color: var(--text-white);
+  --md-footer-fg-color--light: var(--text-gray);
+}
+
+body,
+.md-typeset {
+  background-color: var(--bg-black);
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  color: var(--text-white);
+}
+
+.md-typeset a:hover {
+  color: var(--ibero-red-light);
+}
+
+.md-typeset table:not([class]) {
+  background-color: var(--bg-dark-gray);
+}
+.md-typeset table:not([class]) th {
+  background-color: var(--bg-light-gray);
+  color: var(--text-white);
+}
+
+/* ==========================================================================
+   Hero (encabezado de la página principal)
+   ========================================================================== */
+
+.hero {
+  text-align: center;
+  padding: 1.5rem 1rem 0.5rem;
+}
+
+.hero .logo {
+  width: 160px;
+  height: auto;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.6));
+}
+
+.hero h1 {
+  margin-bottom: 0.25rem !important;
+  border: none !important;
+}
+
+.hero .subtitle {
+  color: var(--text-gray);
+  font-size: 1.1rem;
+  margin-top: 0;
+}
+
+/* ==========================================================================
+   Tarjeta "Sobre mí"
+   ========================================================================== */
+
+.profile-card {
+  background-color: var(--bg-dark-gray);
+  border-top: 4px solid var(--ibero-red);
+  border-radius: 8px;
+  padding: 1.75rem 2rem;
+  margin: 1.5rem 0 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.profile-card > h2 {
+  margin-top: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.profile-item {
+  background-color: var(--bg-light-gray);
+  border-radius: 6px;
+  padding: 1rem 1.2rem;
+}
+
+.profile-item .label {
+  display: block;
+  color: var(--ibero-red);
+  font-weight: bold;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.3rem;
+}
+
+.profile-item .value {
+  display: block;
+  color: var(--text-white);
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+/* ==========================================================================
+   Tarjetas de avance semanal
+   ========================================================================== */
+
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.week-card {
+  display: block;
+  background-color: var(--bg-dark-gray);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--ibero-red);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.week-card:hover {
+  background-color: var(--bg-light-gray);
+  border-left-color: var(--text-white);
+  transform: translateY(-2px);
+}
+
+.week-card .week-label {
+  display: block;
+  color: var(--ibero-red);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.week-card .week-title {
+  display: block;
+  color: var(--text-white) !important;
+  font-size: 1.1rem;
+  margin-top: 0.35rem;
+}
