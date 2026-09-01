@@ -375,3 +375,148 @@ body,
     min-width: 0;
   }
 }
+
+/* ==========================================================================
+   Menú global de navegación (botón hamburguesa en el header)
+   ========================================================================== */
+
+.site-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 0.6rem;
+}
+
+.site-menu__button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.site-menu__button:hover {
+  background: rgba(0, 0, 0, 0.32);
+  border-color: var(--text-white);
+}
+
+.site-menu__button span {
+  display: block;
+  width: 1.15rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text-white);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.site-menu.is-open .site-menu__button span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.site-menu.is-open .site-menu__button span:nth-child(2) {
+  opacity: 0;
+}
+.site-menu.is-open .site-menu__button span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.site-menu__panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 1000;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.6rem;
+  background-color: var(--bg-dark-gray);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.site-menu.is-open .site-menu__panel {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.site-menu__title {
+  padding: 0.4rem 0.6rem;
+  color: var(--text-gray);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.site-menu__link {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.55rem 0.6rem;
+  border-radius: 6px;
+  color: var(--text-white) !important;
+  text-decoration: none !important;
+  font-size: 0.92rem;
+  transition: background-color 0.15s ease;
+}
+
+.site-menu__link:hover {
+  background-color: var(--bg-light-gray);
+}
+
+.site-menu__link.is-active {
+  background-color: rgba(227, 0, 15, 0.18);
+  color: var(--ibero-red-light) !important;
+}
+
+.site-menu__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 6px;
+  background-color: var(--bg-light-gray);
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Listas de definición — usadas para detallar ideas (título + descripción
+   + factor Wow) en las páginas de cada semana.
+   ========================================================================== */
+
+.md-typeset dl {
+  margin: 1.2rem 0;
+}
+
+.md-typeset dt {
+  margin-top: 1.4rem;
+  color: var(--text-white);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.md-typeset dt:first-child {
+  margin-top: 0;
+}
+
+.md-typeset dd {
+  margin: 0.4rem 0 0 0;
+  padding: 0.15rem 0 0.15rem 1rem;
+  border-left: 2px solid var(--ibero-red);
+  color: var(--text-gray);
+}
