@@ -8,8 +8,9 @@
 (function () {
   var PAGES = [
     { href: "/", icon: "🏠", label: "Página principal" },
-    { href: "/semana1/", icon: "1", label: "Semana 1 — SCAMPER" }
-    // { href: "/semana2/", icon: "2", label: "Semana 2 — ..." },
+    { href: "/semana1/", icon: "1", label: "Semana 1 — SCAMPER" },
+    { href: "/semana2/", icon: "2", label: "Semana 2 — Búsqueda de oportunidades" }
+    // { href: "/semana3/", icon: "3", label: "Semana 3 — ..." },
   ];
 
   function getBase() {
