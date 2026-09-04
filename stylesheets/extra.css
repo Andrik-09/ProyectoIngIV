@@ -1,0 +1,522 @@
+/* ==========================================================================
+   Tema propio — Paleta Ibero Puebla (gris / rojo / negro / blanco)
+   Sobrescribe las variables de Material for MkDocs (slate) y define los
+   componentes usados en la página principal (hero, tarjeta "Sobre mí",
+   tarjetas de semanas).
+   ========================================================================== */
+
+:root,
+[data-md-color-scheme="slate"] {
+  --ibero-red: #E3000F;
+  --ibero-red-light: #ff3b3b;
+  --ibero-red-dark: #B3000C;
+  --bg-black: #121212;
+  --bg-dark-gray: #1E1E1E;
+  --bg-light-gray: #2D2D2D;
+  --text-white: #FFFFFF;
+  --text-gray: #CCCCCC;
+  --border-color: #444444;
+
+  /* Material core */
+  --md-default-bg-color: var(--bg-black);
+  --md-default-fg-color: var(--text-white);
+  --md-default-fg-color--light: var(--text-gray);
+  --md-default-fg-color--lighter: #8A8A8A;
+  --md-default-fg-color--lightest: var(--border-color);
+
+  --md-primary-fg-color: var(--ibero-red);
+  --md-primary-fg-color--light: var(--ibero-red-light);
+  --md-primary-fg-color--dark: var(--ibero-red-dark);
+  --md-primary-bg-color: var(--text-white);
+  --md-primary-bg-color--light: var(--text-white);
+
+  --md-accent-fg-color: var(--ibero-red);
+  --md-accent-fg-color--transparent: rgba(227, 0, 15, 0.1);
+  --md-accent-bg-color: var(--text-white);
+
+  --md-typeset-color: var(--text-gray);
+  --md-typeset-a-color: var(--ibero-red);
+
+  --md-code-bg-color: var(--bg-black);
+  --md-code-fg-color: var(--text-white);
+
+  --md-footer-bg-color: var(--bg-dark-gray);
+  --md-footer-bg-color--dark: var(--bg-black);
+  --md-footer-fg-color: var(--text-white);
+  --md-footer-fg-color--light: var(--text-gray);
+}
+
+body,
+.md-typeset {
+  background-color: var(--bg-black);
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  color: var(--text-white);
+}
+
+.md-typeset a:hover {
+  color: var(--ibero-red-light);
+}
+
+.md-typeset table:not([class]) {
+  background-color: var(--bg-dark-gray);
+}
+.md-typeset table:not([class]) th {
+  background-color: var(--bg-light-gray);
+  color: var(--text-white);
+}
+
+/* ==========================================================================
+   Landing page propio — reemplaza el layout genérico de documentación
+   en la portada. El resto del sitio conserva el theme de Material.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-4%, 6%) scale(1.08); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { filter: drop-shadow(0 0 18px rgba(227, 0, 15, 0.35)); }
+  50%      { filter: drop-shadow(0 0 32px rgba(227, 0, 15, 0.6)); }
+}
+
+.landing {
+  overflow-x: clip;
+}
+
+/* ---- Hero ---------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 4.5rem 1.5rem 5rem;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  margin-top: -1.2rem;
+  margin-bottom: 2.5rem;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(227, 0, 15, 0.30), transparent 45%),
+    radial-gradient(circle at 82% 75%, rgba(227, 0, 15, 0.22), transparent 50%),
+    var(--bg-black);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 42rem;
+  height: 42rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(227, 0, 15, 0.18), transparent 70%);
+  animation: drift 14s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero::before { top: -18rem; left: -14rem; }
+.hero::after  { bottom: -20rem; right: -12rem; animation-delay: -7s; }
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero .logo {
+  width: 130px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  animation: pulseGlow 5s ease-in-out infinite;
+}
+
+.hero .eyebrow {
+  display: inline-block;
+  color: var(--ibero-red-light);
+  background: rgba(227, 0, 15, 0.12);
+  border: 1px solid rgba(227, 0, 15, 0.4);
+  border-radius: 999px;
+  padding: 0.3rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 {
+  font-family: "Space Grotesk", "Segoe UI", Roboto, sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.6rem !important;
+  border: none !important;
+  background: linear-gradient(120deg, var(--text-white) 40%, var(--ibero-red-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero .subtitle {
+  color: var(--text-gray);
+  font-size: 1.15rem;
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+/* ---- Secciones genéricas de la landing ------------------------------ */
+
+.landing section.block {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem;
+}
+
+.landing .section-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.landing .section-heading .tag {
+  font-family: "Space Grotesk", monospace;
+  color: var(--ibero-red);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.landing .section-heading h2 {
+  margin: 0 !important;
+  border: none !important;
+  font-family: "Space Grotesk", "Segoe UI", Roboto, sans-serif;
+}
+
+.landing .section-heading::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border-color), transparent);
+}
+
+/* ---- Tarjeta "Sobre mí" --------------------------------------------- */
+
+.about-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1px;
+  background-color: var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+}
+
+.about-item {
+  background-color: var(--bg-dark-gray);
+  padding: 1.5rem 1.4rem;
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  transition: background-color 0.2s ease;
+}
+
+.about-item:hover {
+  background-color: var(--bg-light-gray);
+}
+
+.about-item .icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  filter: grayscale(0.1);
+}
+
+.about-item .label {
+  display: block;
+  color: var(--ibero-red);
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+}
+
+.about-item .value {
+  display: block;
+  color: var(--text-white);
+  font-size: 1.02rem;
+  word-break: break-word;
+}
+
+/* ---- Botones grandes de semanas -------------------------------------- */
+
+.week-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.week-btn {
+  --i: 0;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  background: linear-gradient(155deg, var(--bg-dark-gray) 0%, var(--bg-black) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.6rem 1.6rem;
+  text-decoration: none !important;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease both;
+  animation-delay: calc(var(--i) * 0.09s);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.week-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(227, 0, 15, 0.15), transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.week-btn:hover {
+  transform: translateY(-4px);
+  border-color: var(--ibero-red);
+  box-shadow: 0 16px 35px rgba(227, 0, 15, 0.2);
+}
+
+.week-btn:hover::before {
+  transform: translateX(100%);
+}
+
+.week-btn .index {
+  font-family: "Space Grotesk", monospace;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--ibero-red);
+  opacity: 0.75;
+  min-width: 3rem;
+}
+
+.week-btn .body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.week-btn .label {
+  color: var(--ibero-red-light);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.week-btn .title {
+  color: var(--text-white) !important;
+  font-family: "Space Grotesk", "Segoe UI", Roboto, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.week-btn .desc {
+  color: var(--text-gray);
+  font-size: 0.88rem;
+}
+
+.week-btn .arrow {
+  align-self: center;
+  font-size: 1.4rem;
+  color: var(--text-gray);
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.week-btn:hover .arrow {
+  transform: translateX(6px);
+  color: var(--ibero-red-light);
+}
+
+.week-btn.soon {
+  opacity: 0.5 !important;
+  pointer-events: none;
+  border-style: dashed;
+  animation: none;
+}
+.week-btn.soon .index,
+.week-btn.soon .label { opacity: 0.4; }
+
+/* ---- Ajustes en pantallas angostas ----------------------------------- */
+
+@media (max-width: 480px) {
+  .hero { padding: 3.5rem 1.2rem 3.5rem; }
+
+  .week-btn {
+    padding: 1.3rem 1.2rem;
+    gap: 0.8rem;
+  }
+  .week-btn .index {
+    font-size: 1.6rem;
+    min-width: 0;
+  }
+}
+
+/* ==========================================================================
+   Menú global de navegación (botón hamburguesa en el header)
+   ========================================================================== */
+
+.site-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 0.6rem;
+}
+
+.site-menu__button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.site-menu__button:hover {
+  background: rgba(0, 0, 0, 0.32);
+  border-color: var(--text-white);
+}
+
+.site-menu__button span {
+  display: block;
+  width: 1.15rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text-white);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.site-menu.is-open .site-menu__button span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.site-menu.is-open .site-menu__button span:nth-child(2) {
+  opacity: 0;
+}
+.site-menu.is-open .site-menu__button span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.site-menu__panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 1000;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.6rem;
+  background-color: var(--bg-dark-gray);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.site-menu.is-open .site-menu__panel {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.site-menu__title {
+  padding: 0.4rem 0.6rem;
+  color: var(--text-gray);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.site-menu__link {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.55rem 0.6rem;
+  border-radius: 6px;
+  color: var(--text-white) !important;
+  text-decoration: none !important;
+  font-size: 0.92rem;
+  transition: background-color 0.15s ease;
+}
+
+.site-menu__link:hover {
+  background-color: var(--bg-light-gray);
+}
+
+.site-menu__link.is-active {
+  background-color: rgba(227, 0, 15, 0.18);
+  color: var(--ibero-red-light) !important;
+}
+
+.site-menu__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 6px;
+  background-color: var(--bg-light-gray);
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Listas de definición — usadas para detallar ideas (título + descripción
+   + factor Wow) en las páginas de cada semana.
+   ========================================================================== */
+
+.md-typeset dl {
+  margin: 1.2rem 0;
+}
+
+.md-typeset dt {
+  margin-top: 1.4rem;
+  color: var(--text-white);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.md-typeset dt:first-child {
+  margin-top: 0;
+}
+
+.md-typeset dd {
+  margin: 0.4rem 0 0 0;
+  padding: 0.15rem 0 0.15rem 1rem;
+  border-left: 2px solid var(--ibero-red);
+  color: var(--text-gray);
+}
