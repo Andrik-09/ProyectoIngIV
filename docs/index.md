@@ -83,6 +83,16 @@ hide:
 <span class="arrow">→</span>
 </a>
 
+<a class="week-btn" href="semana2/" style="--i:1">
+<span class="index">02</span>
+<span class="body">
+<span class="label">Semana 2</span>
+<span class="title">Búsqueda de oportunidades (Modo Explorador)</span>
+<span class="desc">Perplexity + Claude en paralelo: insight, Pain-Gain Map, SCAMPER, Remix y validación de "Bahía Cero".</span>
+</span>
+<span class="arrow">→</span>
+</a>
+
 </div>
 
 </section>
