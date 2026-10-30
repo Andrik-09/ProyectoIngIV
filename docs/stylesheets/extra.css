@@ -929,3 +929,70 @@ body,
   border-radius: 3px;
   flex: none;
 }
+
+/* ==========================================================================
+   Canvas de mercado (grid de una página, estilo tarjetas)
+   ========================================================================== */
+
+.canvas-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background-color: var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+.canvas-cell {
+  background-color: var(--bg-dark-gray);
+  padding: 1.1rem 1.2rem;
+  grid-column: span 6;
+}
+
+.canvas-cell.span-3 { grid-column: span 3; }
+.canvas-cell.span-2 { grid-column: span 2; }
+
+.canvas-cell.highlight {
+  background-color: var(--bg-black);
+  border-top: 3px solid var(--ibero-red);
+}
+
+.canvas-title {
+  color: var(--ibero-red);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.canvas-field {
+  margin: 0 0 0.7rem;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text-gray);
+}
+
+.canvas-field:last-child { margin-bottom: 0; }
+
+.canvas-field .flabel {
+  display: block;
+  color: var(--text-white);
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.15rem;
+}
+
+@media (max-width: 720px) {
+  .canvas-cell.span-3,
+  .canvas-cell.span-2 {
+    grid-column: span 6;
+  }
+}

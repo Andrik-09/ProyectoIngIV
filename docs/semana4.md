@@ -208,7 +208,50 @@ Lo que aporta este resultado:
 
 ## Bloque 7 — Canvas de mercado
 
-El canvas de una página (segmento, tamaño de mercado, mapa competitivo, lienzo y propuesta) está en el documento de entrega de la semana.
+Canvas de una página con la síntesis de todo lo anterior — segmento, tamaño de mercado, mapa competitivo, lienzo Blue Ocean y propuesta de valor — entregado para la Semana 4.
+
+<div class="canvas-grid">
+<div class="canvas-cell span-3">
+<p class="canvas-title">1 · Segmento accionable</p>
+<p class="canvas-field"><span class="flabel">Demográfica</span>Flotas de 31–100 unidades (5,386 en México, SICT 2026); corredores México–Puebla–Veracruz y Bajío.</p>
+<p class="canvas-field"><span class="flabel">Conductual</span>Ya usan GPS en caja, monitoreo 24/7 y custodia porque la póliza lo exige.</p>
+<p class="canvas-field"><span class="flabel">Psicográfica</span>Un transportista de carne asaltado 2 veces en Oaxaca–Puebla prefiere pagar suscripción a perder una carga de $500 mil.</p>
+<p class="canvas-field"><span class="flabel">Económica</span>Paga $220–2,200 por unidad al mes en rastreo y $25–45 mil por custodia; decide el dueño con visto bueno del broker.</p>
+<p class="canvas-field"><span class="flabel">Hipótesis críticas</span>Frecuencia de ataques por flota; la evidencia vale más que el paro de motor; la aseguradora reconoce la evidencia.</p>
+</div>
+<div class="canvas-cell span-3">
+<p class="canvas-title">2 · Tamaño de mercado</p>
+<p class="canvas-field"><span class="flabel">TAM</span>249,180 tractocamiones · ≈ $897 M/año (SICT DGAF, mayo 2026).</p>
+<p class="canvas-field"><span class="flabel">SAM</span>46,023 tractocamiones · ≈ $166 M/año. Filtros: estrato mediano y exposición a corredores de riesgo (hipótesis 50%).</p>
+<p class="canvas-field"><span class="flabel">SOM (año 1–2)</span>410 unidades · ≈ $1.5 M/año. Lógica: venta directa en Puebla + CANACAR + 1–2 brokers de seguros.</p>
+</div>
+<div class="canvas-cell span-2">
+<p class="canvas-title">3 · Mapa competitivo</p>
+<p class="canvas-field"><span class="flabel">Directos</span>Motive (alerta al reconectar), Black GPS (ciego sin red), MexTracker (corta motor, sin evidencia).</p>
+<p class="canvas-field"><span class="flabel">Indirectos</span>Geotab/Samsara, GPS en caja + central 24/7, custodia armada.</p>
+<p class="canvas-field"><span class="flabel">Sustitutos</span>Convoy y horarios, absorber el riesgo con el seguro.</p>
+<p class="canvas-field"><span class="flabel">Más peligroso</span>GPS en caja + central, porque la póliza ya lo exige.</p>
+</div>
+<div class="canvas-cell span-2">
+<p class="canvas-title">4 · Lienzo Blue Ocean</p>
+<p class="canvas-field"><span class="flabel">Atributos</span>Precio, gestión de flota, video IA, paro de motor, detección local, alerta sin conexión, evidencia firmada, instalación.</p>
+<p class="canvas-field"><span class="flabel">Eliminar</span>Paro de motor y video con IA.</p>
+<p class="canvas-field"><span class="flabel">Reducir</span>Gestión de flota y precio mensual.</p>
+<p class="canvas-field"><span class="flabel">Incrementar</span>Detección local y alerta en cabina sin conexión.</p>
+<p class="canvas-field"><span class="flabel">Crear</span>Expediente de evento con evidencia firmada.</p>
+<p class="canvas-field"><span class="flabel">Hueco azul</span>La capa de evidencia que funciona cuando las demás se ciegan.</p>
+</div>
+<div class="canvas-cell span-2 highlight">
+<p class="canvas-title">5 · Propuesta de valor</p>
+<p class="canvas-field"><span class="flabel">Oferta</span>Dispositivo J1939 + GNSS + IMU + LTE-M con TinyML y bitácora firmada; solo escucha, no corta el motor.</p>
+<p class="canvas-field"><span class="flabel">Propuesta (25 palabras)</span>«Flotas medianas en corredores de riesgo saben qué pasó durante un jammer, con evidencia firmada para negociar con su aseguradora en lugar de pagar custodia.»</p>
+</div>
+<div class="canvas-cell">
+<p class="canvas-title">Evidencia y pendientes</p>
+<p class="canvas-field"><span class="flabel">Prueba en voz alta</span>Un transportista de carga perecedera la entendió y prefiere suscripción (pérdida citada ≈ $500 mil; media AMESIS ≈ $467 mil).</p>
+<p class="canvas-field"><span class="flabel">Pendiente</span>Entrevistas a dueños de flota y broker para validar frecuencia, disposición a pagar y reconocimiento de la evidencia por la aseguradora.</p>
+</div>
+</div>
 
 ## Conclusión de la semana
 
