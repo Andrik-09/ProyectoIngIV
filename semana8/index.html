@@ -1,0 +1,1452 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../semana7/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Semana 8 — Revisión DFM y prototipo de validación - Proyecto Ingeniería IV</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#semana-8-revision-dfm-y-prototipo-de-validacion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Proyecto Ingeniería IV" class="md-header__button md-logo" aria-label="Proyecto Ingeniería IV" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Proyecto Ingeniería IV
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Semana 8 — Revisión DFM y prototipo de validación
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Proyecto Ingeniería IV" class="md-nav__button md-logo" aria-label="Proyecto Ingeniería IV" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Proyecto Ingeniería IV
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comandos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encabezados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ejemplo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Ejemplo de Documentación del Proyecto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitcmds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Comandos básicos de Git (primeros pasos)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 1 — Ideación con el método SCAMPER
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 2 — Búsqueda de Oportunidades (Modo Estresor): de Kallpa Route AI a Nervik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 3 — Propiedad intelectual, marca y vigilancia tecnológica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 4 — Mercado, valor y propuesta de valor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 5 — Diseño de producto: PDS y arquitectura del sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 6 — Generación y selección de concepto de diseño
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 7 — Viabilidad técnica y económica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 8 — Revisión DFM y prototipo de validación
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 8 — Revisión DFM y prototipo de validación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-de-la-semana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo de la semana
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-1-supuestos-de-la-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bloque 1 — Supuestos de la revisión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-2-comparacion-del-bom-por-componente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bloque 2 — Comparación del BOM por componente
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-3-costo-unitario-de-manufactura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bloque 3 — Costo unitario de manufactura
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-4-dfa-simplificar-el-ensamble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bloque 4 — DFA: simplificar el ensamble
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-5-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bloque 5 — Decisión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-6-prototipo-de-aterrizaje-para-validar-con-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bloque 6 — Prototipo de aterrizaje para validar con usuarios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-7-asi-se-ve-un-expediente-ejemplo-ilustrativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bloque 7 — Así se ve un expediente (ejemplo ilustrativo)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion-de-la-semana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusión de la semana
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-de-la-semana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo de la semana
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-1-supuestos-de-la-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bloque 1 — Supuestos de la revisión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-2-comparacion-del-bom-por-componente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bloque 2 — Comparación del BOM por componente
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-3-costo-unitario-de-manufactura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bloque 3 — Costo unitario de manufactura
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-4-dfa-simplificar-el-ensamble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bloque 4 — DFA: simplificar el ensamble
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-5-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bloque 5 — Decisión
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-6-prototipo-de-aterrizaje-para-validar-con-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bloque 6 — Prototipo de aterrizaje para validar con usuarios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloque-7-asi-se-ve-un-expediente-ejemplo-ilustrativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bloque 7 — Así se ve un expediente (ejemplo ilustrativo)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion-de-la-semana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusión de la semana
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="semana-8-revision-dfm-y-prototipo-de-validacion">Semana 8 — Revisión DFM y prototipo de validación</h1>
+<p><span class="bitacora-meta"><strong>Andrik Pérez Luna</strong> · Ingeniería Mecatrónica · Equipo 2: Andrik Pérez Luna, Juan Pablo y Mauro David Sánchez Arenas</span></p>
+<h2 id="objetivo-de-la-semana">Objetivo de la semana</h2>
+<p>La Semana 7 dejó dos problemas abiertos: el costo de componentes <strong>excede en $104 el requisito C-01</strong> del PDS a 100 unidades, y el módem celular por sí solo pesa casi la mitad del BOM. Esta semana se hizo una <strong>revisión DFM (Diseño para Manufactura)</strong> del concepto "Cuña Guardián" para atacar ambos problemas desde el ensamble y desde la lista de materiales, y en paralelo se construyó un <strong>prototipo de baja resolución</strong> —una página de aterrizaje con un expediente de ejemplo— para poner la propuesta de valor frente a transportistas reales antes de comprometer la inversión en herramental.</p>
+<p>Se compararon tres escenarios: <strong>ACTUAL</strong> (el BOM cotizado en la Semana 7), <strong>DFM-A</strong> (mejoras de manufactura y ensamble sin tocar ningún requisito del PDS) y <strong>DFM-B</strong> (DFM-A más un cambio de módem que obliga a renunciar al respaldo 2G del requisito I-04). Todo se calculó en una hoja de cálculo con fórmulas visibles, igual que en la Semana 7.</p>
+<hr />
+<h2 id="bloque-1-supuestos-de-la-revision">Bloque 1 — Supuestos de la revisión</h2>
+<table>
+<thead>
+<tr>
+<th>Supuesto</th>
+<th>Valor</th>
+<th>Fuente / justificación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipo de cambio</td>
+<td>18.65 MXN/USD</td>
+<td>Banxico FIX 27-oct-2026 (igual que la Semana 7)</td>
+</tr>
+<tr>
+<td>Factor de envío e importación</td>
+<td>20% del costo de componentes</td>
+<td>Supuesto de la Semana 7</td>
+</tr>
+<tr>
+<td>Mano de obra</td>
+<td>120 MXN/h</td>
+<td>Supuesto de la Semana 7</td>
+</tr>
+<tr>
+<td>Overhead sobre el costo directo</td>
+<td>15%</td>
+<td>Método del curso</td>
+</tr>
+<tr>
+<td>Contingencias sobre el BOM</td>
+<td>25%</td>
+<td>Método de la Semana 7</td>
+</tr>
+<tr>
+<td>Ensamble y prueba ACTUAL</td>
+<td>25 min/u a 10 u · 15 min/u a 100 u</td>
+<td>Semana 7 (15 piezas, con fixture de pogo pins a volumen)</td>
+</tr>
+<tr>
+<td>Ensamble y prueba DFM</td>
+<td>15 min/u a 10 u · 10 min/u a 100 u</td>
+<td>11 piezas, inserción desde arriba, sin cautín (ver Bloque 4)</td>
+</tr>
+<tr>
+<td>Límite de componentes del PDS (C-01)</td>
+<td>≤ $650 MXN a 100 u</td>
+<td>PDS v1.0, requisito C-01</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bloque-2-comparacion-del-bom-por-componente">Bloque 2 — Comparación del BOM por componente</h2>
+<p>A 100 unidades, en USD por unidad. Los renglones sin cambio conservan el precio cotizado en la Semana 7.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Componente</th>
+<th style="text-align: right;">ACTUAL</th>
+<th style="text-align: right;">DFM-A</th>
+<th style="text-align: right;">DFM-B</th>
+<th>Cambio DFM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Microcontrolador RP2040</td>
+<td style="text-align: right;">0.76</td>
+<td style="text-align: right;">0.76</td>
+<td style="text-align: right;">0.76</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Flash W25Q64JV</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.38</td>
+<td>—</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Cristal y pasivos del MCU</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.30</td>
+<td>—</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Controlador CAN MCP2515</td>
+<td style="text-align: right;">1.05</td>
+<td style="text-align: right;">1.05</td>
+<td style="text-align: right;">1.05</td>
+<td>Se conserva: su modo <em>listen-only</em> por registro refuerza el requisito I-02</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Transceptor CAN aislado ISO1042</td>
+<td style="text-align: right;">1.60</td>
+<td style="text-align: right;">1.60</td>
+<td style="text-align: right;">1.60</td>
+<td>Se conserva por el aislamiento de bus de 70 V</td>
+</tr>
+<tr>
+<td>6</td>
+<td>IMU LSM6DSOX</td>
+<td style="text-align: right;">1.66</td>
+<td style="text-align: right;">1.66</td>
+<td style="text-align: right;">1.66</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td><strong>Módem celular</strong></td>
+<td style="text-align: right;"><strong>19.91</strong></td>
+<td style="text-align: right;"><strong>19.11</strong></td>
+<td style="text-align: right;"><strong>10.50</strong></td>
+<td><strong>A:</strong> BG95-M3 comprado a distribuidor autorizado (DigiKey/Avnet) en vez del estimado. <strong>B:</strong> SIMCom SIM7080G (Cat-M/NB-IoT, <strong>sin 2G</strong>), en existencia en LCSC, montable por JLCPCB</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Receptor GNSS LC76G</td>
+<td style="text-align: right;">5.48</td>
+<td style="text-align: right;">5.48</td>
+<td style="text-align: right;">5.48</td>
+<td>Se conserva: el GNSS no opera al mismo tiempo que el LTE del módem (multiplexado en el tiempo)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Antenas LTE y GNSS</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">3.00</td>
+<td>Mismo costo; la antena GNSS pasa a montaje fijo junto al receptor</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Etapa de potencia 60 V</td>
+<td style="text-align: right;">1.60</td>
+<td style="text-align: right;">1.60</td>
+<td style="text-align: right;">1.60</td>
+<td>—</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Batería LiFePO4 18650</td>
+<td style="text-align: right;">2.50</td>
+<td style="text-align: right;">2.50</td>
+<td style="text-align: right;">2.50</td>
+<td>Mismo costo; celda con lengüetas y conector JST en vez de portapilas soldado</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Cargador LiFePO4</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">0.30</td>
+<td>—</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Interfaz local (3 LED + 2 botones)</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.40</td>
+<td>Mismo costo; LED alineados bajo un solo peine de guías de luz</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Pasivos, conectores y ESD</td>
+<td style="text-align: right;">1.50</td>
+<td style="text-align: right;">1.50</td>
+<td style="text-align: right;">1.50</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>ACTUAL</th>
+<th>DFM-A</th>
+<th>DFM-B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Subtotal componentes (USD)</td>
+<td>$40.43 (100 u) · $51.61 (10 u)</td>
+<td>$39.63 · $46.52</td>
+<td>$31.02 · $37.54</td>
+</tr>
+<tr>
+<td>Cable J1939 Y Deutsch 9 pines (USD)</td>
+<td>$7.68 · $8.00</td>
+<td>$7.68 · $8.00</td>
+<td>$7.68 · $8.00</td>
+</tr>
+<tr>
+<td>SIM IoT 1NCE, 10 años (USD)</td>
+<td>$16.00 — no es costo de manufactura, es conectividad prepagada del servicio</td>
+<td>$16.00</td>
+<td>$16.00</td>
+</tr>
+<tr>
+<td>Envío e importación (MXN)</td>
+<td>$179 (100 u) · $222 (10 u)</td>
+<td>$176 · $203</td>
+<td>$144 · $170</td>
+</tr>
+<tr>
+<td><strong>BOM total puesto en México (MXN)</strong></td>
+<td><strong>$1,375 (100 u) · $1,633 (10 u)</strong></td>
+<td><strong>$1,357 · $1,519</strong></td>
+<td><strong>$1,165 · $1,318</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">¿Cumple el requisito C-01 (componentes ≤ $650 MXN a 100 u)?</p>
+<p><strong>ACTUAL:</strong> no — excede en $104. <strong>DFM-A:</strong> no — excede en $89. <strong>DFM-B:</strong> <strong>sí — sobran $71</strong>. El peso del módem dentro de los componentes baja de <strong>49.2%</strong> (ACTUAL) a <strong>48.2%</strong> (DFM-A) y a <strong>33.8%</strong> (DFM-B): cambiar el módem es la única palanca que realmente mueve el cumplimiento del requisito.</p>
+</div>
+<h2 id="bloque-3-costo-unitario-de-manufactura">Bloque 3 — Costo unitario de manufactura</h2>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>ACTUAL</th>
+<th>DFM-A</th>
+<th>DFM-B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BOM total puesto en México</td>
+<td>$1,375 (100 u) · $1,633 (10 u)</td>
+<td>$1,357 · $1,519</td>
+<td>$1,165 · $1,318</td>
+</tr>
+<tr>
+<td>PCB 4 capas + ensamble SMT (JLCPCB)</td>
+<td>$65 · $170</td>
+<td>$65 · $170</td>
+<td>$65 · $170</td>
+</tr>
+<tr>
+<td>Envío de PCBA</td>
+<td>$8 · $47</td>
+<td>$8 · $47</td>
+<td>$8 · $47</td>
+</tr>
+<tr>
+<td>Carcasa PETG, guías de luz y soporte</td>
+<td>$45 · $60</td>
+<td>$45 · $60</td>
+<td>$45 · $60</td>
+</tr>
+<tr>
+<td>Ensamble y prueba</td>
+<td>$30 · $50</td>
+<td>$20 · $30</td>
+<td>$20 · $30</td>
+</tr>
+<tr>
+<td>Costo directo</td>
+<td>$1,523 · $1,960</td>
+<td>$1,495 · $1,826</td>
+<td>$1,303 · $1,625</td>
+</tr>
+<tr>
+<td>Overhead (15%)</td>
+<td>$228 · $294</td>
+<td>$224 · $274</td>
+<td>$195 · $244</td>
+</tr>
+<tr>
+<td>Contingencias (25% del BOM)</td>
+<td>$344 · $408</td>
+<td>$339 · $380</td>
+<td>$291 · $329</td>
+</tr>
+<tr>
+<td><strong>Costo unitario del hardware</strong></td>
+<td><strong>$2,095 (100 u) · $2,662 (10 u)</strong></td>
+<td><strong>$2,059 · $2,479</strong></td>
+<td><strong>$1,789 · $2,198</strong></td>
+</tr>
+<tr>
+<td>Reducción contra ACTUAL</td>
+<td>—</td>
+<td>$37 (100 u) · $182 (10 u)</td>
+<td>$306 (100 u) · $464 (10 u)</td>
+</tr>
+<tr>
+<td>Reducción porcentual</td>
+<td>—</td>
+<td>1.7% · 6.9%</td>
+<td>14.6% · 17.4%</td>
+</tr>
+<tr>
+<td><strong>Margen contra el precio de venta de $1,800</strong></td>
+<td><strong>−$295 · −$862</strong></td>
+<td><strong>−$259 · −$679</strong></td>
+<td><strong>+$11 (100 u) · −$398 (10 u)</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="chart-card">
+<svg viewBox="0 0 700 300" role="img" aria-label="Margen por unidad frente al precio de venta de 1800 pesos, comparando ACTUAL, DFM-A y DFM-B a 10 y 100 unidades">
+  <line x1="150" y1="270" x2="620" y2="270" stroke="#333"/>
+  <line x1="580" y1="12" x2="580" y2="270" stroke="#E3000F" stroke-width="2"/>
+  <text x="580" y="9" text-anchor="middle" font-size="11" font-weight="700" fill="#E3000F">precio $1,800</text>
+  <g font-size="10" fill="#999" text-anchor="middle">
+    <text x="196" y="288">−800</text>
+    <text x="292" y="288">−600</text>
+    <text x="388" y="288">−400</text>
+    <text x="484" y="288">−200</text>
+    <text x="580" y="288">0</text>
+  </g>
+  <g stroke="#333">
+    <line x1="196" y1="265" x2="196" y2="272"/>
+    <line x1="292" y1="265" x2="292" y2="272"/>
+    <line x1="388" y1="265" x2="388" y2="272"/>
+    <line x1="484" y1="265" x2="484" y2="272"/>
+  </g>
+  <g font-size="10.5" fill="#ccc">
+    <text x="8" y="44">ACTUAL · 10 u</text>
+    <text x="8" y="86">ACTUAL · 100 u</text>
+    <text x="8" y="128">DFM-A · 10 u</text>
+    <text x="8" y="170">DFM-A · 100 u</text>
+    <text x="8" y="212">DFM-B · 10 u</text>
+    <text x="8" y="254" font-weight="700" fill="#fff">DFM-B · 100 u</text>
+  </g>
+  <rect x="166.2" y="26" width="413.8" height="28" rx="3" fill="#E3000F" opacity="0.85"/>
+  <rect x="438.4" y="68" width="141.6" height="28" rx="3" fill="#E3000F" opacity="0.85"/>
+  <rect x="254.1" y="110" width="325.9" height="28" rx="3" fill="#E3000F" opacity="0.85"/>
+  <rect x="455.7" y="152" width="124.3" height="28" rx="3" fill="#E3000F" opacity="0.85"/>
+  <rect x="389.0" y="194" width="191.0" height="28" rx="3" fill="#E3000F" opacity="0.85"/>
+  <rect x="580" y="236" width="5.3" height="28" rx="2" fill="#fff" stroke="#E3000F" stroke-width="2"/>
+  <g font-size="11" fill="#fff" font-weight="700" text-anchor="end">
+    <text x="160.2" y="44">−$862</text>
+    <text x="432.4" y="86">−$295</text>
+    <text x="248.1" y="128">−$679</text>
+    <text x="449.7" y="170">−$259</text>
+    <text x="383.0" y="212">−$398</text>
+  </g>
+  <text x="592" y="254" font-size="11" fill="#fff" font-weight="700">+$11</text>
+</svg>
+<p class="chart-caption">Margen por unidad en pesos mexicanos frente al precio de venta de $1,800 — DFM-B a 100 unidades es el único escenario que cruza a positivo, y por apenas $11 MXN.</p>
+</div>
+
+<h2 id="bloque-4-dfa-simplificar-el-ensamble">Bloque 4 — DFA: simplificar el ensamble</h2>
+<p>El cambio de módem no es la única palanca: la mitad de la reducción de ensamble (de 25 a 10 minutos por unidad a volumen) viene de rediseñar cómo se manipulan las piezas en la estación final, sin tocar la electrónica.</p>
+<div class="dfm-compare">
+<div class="dfm-stat">
+<p><span class="dfm-value">17</span>
+<span class="dfm-sub">piezas de ensamble — ACTUAL</span></p>
+</div>
+<p><span class="dfm-arrow">→</span></p>
+<div class="dfm-stat highlight">
+<p><span class="dfm-value">13</span>
+<span class="dfm-sub">piezas de ensamble — DFM</span></p>
+</div>
+</div>
+<div class="dfm-compare">
+<div class="dfm-stat">
+<p><span class="dfm-value">5</span>
+<span class="dfm-sub">piezas que exigen cautín u orientación manual — ACTUAL</span></p>
+</div>
+<p><span class="dfm-arrow">→</span></p>
+<div class="dfm-stat highlight">
+<p><span class="dfm-value">1</span>
+<span class="dfm-sub">pieza con orientación manual — DFM (antena LTE)</span></p>
+</div>
+</div>
+<table>
+<thead>
+<tr>
+<th>Pieza</th>
+<th style="text-align: center;">ACTUAL</th>
+<th style="text-align: center;">DFM</th>
+<th>Principio DFA aplicado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base de la cuña (PETG)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td>Pieza de referencia; se apoya en la mesa sin voltear</td>
+</tr>
+<tr>
+<td>Tapa (PETG)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td>Entra desde arriba; 2 ganchos impresos en el plano XY</td>
+</tr>
+<tr>
+<td>Tornillos autorroscantes</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td>Se conservan para abrir y cambiar la batería (reparabilidad)</td>
+</tr>
+<tr>
+<td>Guías de luz</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+<td>Peine de 3 guías en una sola pieza: se orienta solo</td>
+</tr>
+<tr>
+<td>Junta de silicón IP54</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td>Cordón en ranura de la base; no requiere orientación</td>
+</tr>
+<tr>
+<td>PCBA</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td>Sobre rieles, muesca asimétrica: solo entra en una posición</td>
+</tr>
+<tr>
+<td>Batería 18650</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td>Con lengüetas y conector JST: se conecta sin cautín</td>
+</tr>
+<tr>
+<td>Portapilas soldado</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td>Eliminado por la batería con conector</td>
+</tr>
+<tr>
+<td>Antena GNSS con cable</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td>Antena cerámica fija junto al receptor, montada por JLCPCB</td>
+</tr>
+<tr>
+<td>Antena LTE flexible</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td>Adhesiva en la pared interior, conector U.FL</td>
+</tr>
+<tr>
+<td>Prensaestopa del cable</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td>Se conserva por el requisito de hermeticidad IP54</td>
+</tr>
+<tr>
+<td>Cable J1939 (lado del equipo)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td>Conector con seguro y polarizado</td>
+</tr>
+<tr>
+<td>Cinchos de nailon</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td>Los coloca el instalador, no el ensamble</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bloque-5-decision">Bloque 5 — Decisión</h2>
+<p><strong>DFM-A se adopta sin discusión:</strong> no cambia ningún requisito del PDS, reduce el ensamble de 17 a 13 piezas y recorta el costo unitario entre 1.7% y 6.9%. Es manufactura más barata y más simple, gratis en términos de alcance.</p>
+<p><strong>DFM-B es otra categoría de decisión.</strong> Es el único escenario que cumple C-01 y el único con margen positivo a 100 unidades, pero lo logra renunciando al respaldo 2G del requisito I-04 — exactamente el tipo de cobertura que importa en corredores rurales donde la red LTE es débil fuera del evento de interferencia. Y aun así el margen es de <strong>apenas $11 MXN por unidad</strong>: no resuelve el problema de fondo que dejó la Semana 7 (el negocio se paga con la suscripción, no con el hardware).</p>
+<div class="admonition tip">
+<p class="admonition-title">Lo que se lleva a campo</p>
+<p>Se adopta DFM-A en el diseño. El cambio de módem (DFM-B) queda condicionado a validar en el prototipo piloto si las flotas realmente operan en tramos sin cobertura 2G de respaldo — esa respuesta, no una hoja de cálculo, es la que debe decidir si vale la pena renunciar a I-04 por $11 MXN de margen.</p>
+</div>
+<h2 id="bloque-6-prototipo-de-aterrizaje-para-validar-con-usuarios">Bloque 6 — Prototipo de aterrizaje para validar con usuarios</h2>
+<p>En paralelo a la revisión de costos, el equipo construyó un prototipo de baja resolución: una página de aterrizaje real, con la propuesta de valor, el modelo de precio y un formulario para apartar una unidad del lote piloto de 10. El objetivo no es vender todavía, sino medir si una flota mediana da el siguiente paso (dejar sus datos de contacto) frente a la propuesta tal como quedaría frente a un cliente.</p>
+<p><iframe
+    src="../recursos/presentaciones/semana8-landing-prototipo.html"
+    width="100%"
+    height="650"
+    style="border: 1px solid #444; border-radius: 8px;"
+    title="Prototipo de aterrizaje - Semana 8">
+</iframe>
+</p>
+<p>¿No se ve bien el reproductor? <a href="../recursos/presentaciones/semana8-landing-prototipo.html" target="_blank">Abre el prototipo en una pestaña nueva</a>.</p>
+<h2 id="bloque-7-asi-se-ve-un-expediente-ejemplo-ilustrativo">Bloque 7 — Así se ve un expediente (ejemplo ilustrativo)</h2>
+<p>Dentro del prototipo, la sección "Así se ve un expediente" se apoya en un documento de una página que muestra, con datos ficticios, lo que el dispositivo entrega después de un evento de interferencia: una cronología con sello de tiempo y una firma que invalida el documento si alguien lo modifica después.</p>
+<div class="expediente-card">
+<p><span class="expediente-stamp">Ejemplo ilustrativo · datos ficticios</span></p>
+<div class="expediente-fields">
+<div class="canvas-field">
+<p><span class="flabel">Expediente</span>
+N-2026-0014</p>
+</div>
+<div class="canvas-field">
+<p><span class="flabel">Flota</span>
+Transportes Ejemplo S.A. de C.V.</p>
+</div>
+<div class="canvas-field">
+<p><span class="flabel">Unidad</span>
+ECO-14 · Tractocamión Clase 8</p>
+</div>
+<div class="canvas-field">
+<p><span class="flabel">Corredor</span>
+Puebla–Oaxaca (federal 135D)</p>
+</div>
+<div class="canvas-field">
+<p><span class="flabel">Carga declarada</span>
+Perecederos refrigerados</p>
+</div>
+<div class="canvas-field">
+<p><span class="flabel">Dispositivo</span>
+NVK-0003 · firmware 0.4</p>
+</div>
+<div class="canvas-field">
+<p><span class="flabel">Inicio del evento</span>
+02:14:07 (hora del centro)</p>
+</div>
+<div class="canvas-field">
+<p><span class="flabel">Duración</span>
+17 min 48 s</p>
+</div>
+</div>
+<p class="canvas-field"><span class="flabel">Clasificación del modelo</span> Inhibidor GNSS + celular (confianza 0.94)</p>
+<div class="expediente-chrono">
+<div class="expediente-row"><span class="etime">02:13:50</span><span class="etext">Última posición válida — km 92, 82 km/h</span></div>
+<div class="expediente-row"><span class="etime">02:14:07</span><span class="etext">Caída simultánea de señal-ruido en 14 satélites</span></div>
+<div class="expediente-row"><span class="etime">02:14:20</span><span class="etext">Pérdida de red celular; alerta encendida en cabina</span></div>
+<div class="expediente-row"><span class="etime">02:16:41</span><span class="etext">Parada no programada — 0 km/h, motor encendido, freno aplicado</span></div>
+<div class="expediente-row"><span class="etime">02:22:03</span><span class="etext">Sacudida lateral — pico de IMU de 1.8 g</span></div>
+<div class="expediente-row"><span class="etime">02:31:55</span><span class="etext">Fin de la interferencia — expediente sellado y enviado (02:32:10)</span></div>
+</div>
+<p class="canvas-field"><span class="flabel">Estado de verificación</span> Firma válida · cadena completa (412 registros) · sello de tiempo del servidor 02:32:11</p>
+<div class="expediente-hash">Huella del expediente: 9f3c 61d2 0b7e 44a9 c5f1 8e20 7d33 a71e — cualquier cambio posterior invalida la firma</div>
+</div>
+<p><strong>Qué no contiene:</strong> el dispositivo solo escucha el bus J1939, nunca apagó el motor, no envió órdenes al camión y no graba audio ni video — es evidencia, no control.</p>
+<p><a href="../recursos/archivos/semana8-expediente-ejemplo.pdf" target="_blank">Descargar el expediente de ejemplo (PDF)</a> · <a href="../recursos/archivos/semana8-bom-dfm.xlsx" target="_blank">Descargar la hoja de cálculo completa de la revisión DFM (XLSX)</a></p>
+<h2 id="conclusion-de-la-semana">Conclusión de la semana</h2>
+<p>La revisión DFM confirma, desde otro ángulo, lo que ya había encontrado la Semana 7: el hardware de Nervik no deja margen fácil. Simplificar el ensamble (DFM-A) es ganancia pura y ya se adoptó; forzar el cumplimiento de C-01 (DFM-B) solo se logra sacrificando un requisito del PDS, y aun así el margen por unidad es de centavos, no de pesos. La suscripción sigue siendo donde vive el negocio. El prototipo de aterrizaje, por su parte, mueve el proyecto de la hoja de cálculo a algo que un transportista real puede ver y usar: la siguiente evidencia que necesita el equipo no es otro escenario de costos, sino si alguien está dispuesto a apartar una unidad del lote piloto.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "content.tooltips", "navigation.top"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

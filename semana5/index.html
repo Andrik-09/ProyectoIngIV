@@ -1,0 +1,1201 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../semana4/">
+      
+      
+        <link rel="next" href="../semana6/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Semana 5 — Diseño de producto: PDS y arquitectura del sistema - Proyecto Ingeniería IV</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#semana-5-diseno-de-producto-pds-y-arquitectura-del-sistema" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Proyecto Ingeniería IV" class="md-header__button md-logo" aria-label="Proyecto Ingeniería IV" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Proyecto Ingeniería IV
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Semana 5 — Diseño de producto: PDS y arquitectura del sistema
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Proyecto Ingeniería IV" class="md-nav__button md-logo" aria-label="Proyecto Ingeniería IV" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Proyecto Ingeniería IV
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comandos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encabezados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ejemplo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Ejemplo de Documentación del Proyecto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitcmds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Comandos básicos de Git (primeros pasos)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 1 — Ideación con el método SCAMPER
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 2 — Búsqueda de Oportunidades (Modo Estresor): de Kallpa Route AI a Nervik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 3 — Propiedad intelectual, marca y vigilancia tecnológica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 4 — Mercado, valor y propuesta de valor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 5 — Diseño de producto: PDS y arquitectura del sistema
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 5 — Diseño de producto: PDS y arquitectura del sistema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-de-la-semana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo de la semana
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-1-esqueleto-del-pds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1 — Esqueleto del PDS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-2-decision-de-arquitectura-de-ia-edge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2 — Decisión de arquitectura de IA: edge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-3-diagrama-de-bloques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 3 — Diagrama de bloques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso 3 — Diagrama de bloques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt-1-claude-arquitectura-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 1 (Claude) → Arquitectura del sistema
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-4-pds-completo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 4 — PDS completo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso 4 — PDS completo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt-2-claude-validar-y-completar-el-pds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 2 (Claude) → Validar y completar el PDS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-5-investigacion-de-componentes-y-bom-preliminar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 5 — Investigación de componentes y BOM preliminar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso 5 — Investigación de componentes y BOM preliminar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt-perplexity-componentes-precios-y-tiempos-de-entrega" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt (Perplexity) → Componentes, precios y tiempos de entrega
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion-de-la-semana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusión de la semana
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 6 — Generación y selección de concepto de diseño
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 7 — Viabilidad técnica y económica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semana8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semana 8 — Revisión DFM y prototipo de validación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-de-la-semana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivo de la semana
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-1-esqueleto-del-pds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1 — Esqueleto del PDS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-2-decision-de-arquitectura-de-ia-edge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2 — Decisión de arquitectura de IA: edge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-3-diagrama-de-bloques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 3 — Diagrama de bloques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso 3 — Diagrama de bloques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt-1-claude-arquitectura-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 1 (Claude) → Arquitectura del sistema
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-4-pds-completo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 4 — PDS completo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso 4 — PDS completo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt-2-claude-validar-y-completar-el-pds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt 2 (Claude) → Validar y completar el PDS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-5-investigacion-de-componentes-y-bom-preliminar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 5 — Investigación de componentes y BOM preliminar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso 5 — Investigación de componentes y BOM preliminar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prompt-perplexity-componentes-precios-y-tiempos-de-entrega" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt (Perplexity) → Componentes, precios y tiempos de entrega
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion-de-la-semana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusión de la semana
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="semana-5-diseno-de-producto-pds-y-arquitectura-del-sistema">Semana 5 — Diseño de producto: PDS y arquitectura del sistema</h1>
+<p><span class="bitacora-meta"><strong>Andrik Pérez Luna</strong> · Ingeniería Mecatrónica · Equipo 2: Andrik Pérez Luna, Juan Pablo y Mauro David Sánchez Arenas</span></p>
+<h2 id="objetivo-de-la-semana">Objetivo de la semana</h2>
+<p>Convertir la propuesta de valor en una <strong>especificación verificable</strong> (Product Design Specification, PDS) y en una <strong>arquitectura de sistema</strong>: qué debe cumplir Nervik en números que otra persona pueda comprobar sin preguntarle al equipo, dónde corre la IA, qué módulos tiene el dispositivo y cómo se comunican. Sin el PDS no se puede costear (Semana 7) ni diseñar la forma (Semana 6).</p>
+<hr />
+<h2 id="paso-1-esqueleto-del-pds">Paso 1 — Esqueleto del PDS</h2>
+<p>En el taller se escribieron las primeras restricciones de diseño, que después se usaron como insumo en la Semana 6:</p>
+<ul>
+<li><strong>Ambiente:</strong> IP54 o superior; operación aproximada de −10 °C a 60 °C; vibración de vehículo de carga.</li>
+<li><strong>Costo de prototipo:</strong> máximo $2,500 MXN por unidad, incluyendo carcasa, PCB, microcontrolador, sensores, módulo GNSS y comunicación, conectores y montaje.</li>
+<li><strong>Instalación:</strong> <em>plug-and-play</em> en cabina, con montaje removible y sin perforar.</li>
+<li><strong>Dimensiones:</strong> objetivo máximo de 150 × 100 × 50 mm.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Hueco detectado al revisar el avance</p>
+<p>Había arquitectura descrita en prosa, pero <strong>no existía un PDS con métricas verificables</strong>. Sin valores (voltaje de entrada, consumo, tiempo de detección, autonomía, temperatura, grado IP, dimensiones, costo y vida útil) la Semana 7 no tenía contra qué costear.</p>
+</div>
+<h2 id="paso-2-decision-de-arquitectura-de-ia-edge">Paso 2 — Decisión de arquitectura de IA: edge</h2>
+<p>El equipo decidió que el modelo de detección corra <strong>en el dispositivo (edge)</strong>, no en la nube:</p>
+<ol>
+<li><strong>El problema ocurre sin conexión.</strong> Un modelo en la nube deja de existir justo cuando el jammer corta la red; es la razón de ser del producto.</li>
+<li><strong>Latencia.</strong> La clasificación debe ocurrir en segundos (requisito F-01 ≤ 5 s) para registrar el evento desde su inicio.</li>
+<li><strong>Costo.</strong> Un modelo TinyML no tiene costo por inferencia; la nube solo se usa para redactar expedientes cuando hay conexión (en la Semana 7 se confirmó: $0.29 MXN por unidad al mes).</li>
+</ol>
+<h2 id="paso-3-diagrama-de-bloques">Paso 3 — Diagrama de bloques</h2>
+<h3 id="prompt-1-claude-arquitectura-del-sistema">Prompt 1 (Claude) → Arquitectura del sistema</h3>
+<p>Se dieron a Claude el nombre del concepto, su descripción, la propuesta de valor, los requerimientos técnicos clave y la decisión de IA, y se le pidió el diagrama de bloques con módulos, interfaces y protocolos.</p>
+<div class="admonition warning">
+<p class="admonition-title">Corrección técnica importante</p>
+<p>Los documentos previos decían "puerto OBD-II". El tractocamión de carga pesada usa <strong>SAE J1939 sobre conector Deutsch de 9 pines</strong>, así que el PDS lo adopta como interfaz principal.</p>
+</div>
+<div class="arch-diagram">
+<div class="arch-row">
+<div class="arch-card in">
+<p><span class="arch-title">Bus del vehículo</span><span class="arch-items">SAE J1939 / CAN 2.0B<br>Deutsch 9 pines · 250 kbit/s</span></p>
+</div>
+<div class="arch-card in">
+<p><span class="arch-title">Alimentación</span><span class="arch-items">12/24 V nominal, 9–36 V DC<br>desde el vehículo</span></p>
+</div>
+<div class="arch-card in">
+<p><span class="arch-title">Entorno RF</span><span class="arch-items">Señal GNSS · portadora celular<br>interferencia (jammer)</span></p>
+</div>
+</div>
+<div class="arch-flow-label">↓ CAN · V+ · RF ↓</div>
+<div class="arch-row">
+<div class="arch-card sense">
+<p><span class="arch-title">M1 · Interfaz vehicular</span><span class="arch-items">Transceptor CAN aislado · modo listen-only<br>Protección ISO 7637-2 · sin actuador de motor</span></p>
+</div>
+<div class="arch-card power">
+<p><span class="arch-title">M2 · Gestión de energía</span><span class="arch-items">DC-DC 9–36 V · protección de polaridad<br>LiFePO₄ · respaldo ≥ 72 h · reposo &lt; 50 mW</span></p>
+</div>
+<div class="arch-card sense">
+<p><span class="arch-title">M3 · Sensado</span><span class="arch-items">GNSS multiconstelación · IMU 6 ejes ±16 g<br>Monitor RF (RSSI, C/N₀) · sensor de manipulación</span></p>
+</div>
+</div>
+<div class="arch-flow-label">↓ PGN · 3V3 · SPI/I²C/UART ↓</div>
+<div class="arch-row">
+<div class="arch-card proc">
+<p><span class="arch-title">M4 · Núcleo de procesamiento</span><span class="arch-items">MCU ARM Cortex-M ≥ 133 MHz · ≥ 264 kB RAM<br>TinyML ≤ 256 kB · inferencia ≤ 100 ms · máquina de estados</span></p>
+</div>
+<div class="arch-card proc">
+<p><span class="arch-title">M5 · Registro local</span><span class="arch-items">Flash ≥ 8 MB · bitácora ≥ 30 días<br>Eventos firmados HMAC · sincroniza al reconectar</span></p>
+</div>
+<div class="arch-card proc">
+<p><span class="arch-title">M6 · Interfaz local</span><span class="arch-items">3 LED: energía / enlace / alerta<br>2 botones: reinicio y prueba</span></p>
+</div>
+</div>
+<div class="arch-flow-label">↓ eventos / comandos ↓</div>
+<div class="arch-row">
+<div class="arch-card comm" style="grid-column: span 3;">
+<p><span class="arch-title">M7 · Comunicación</span><span class="arch-items">LTE Cat-M1 / NB-IoT con respaldo 2G · cola y reintento · módulo homologado por el IFT</span></p>
+</div>
+</div>
+<div class="arch-flow-label">↓</div>
+<div class="arch-row">
+<div class="arch-card out">
+<p><span class="arch-title">App centro de control</span><span class="arch-items">Mapa y alertas · bitácora del viaje<br>protocolo de reacción</span></p>
+</div>
+<div class="arch-card out">
+<p><span class="arch-title">Nube / API</span><span class="arch-items">Expediente de evento · reporte de riesgo<br>exportación a aseguradora</span></p>
+</div>
+<div class="arch-card out">
+<p><span class="arch-title">Portal web B2B</span><span class="arch-items">Alta de pilotos · gestión de flota</span></p>
+</div>
+</div>
+</div>
+<p class="chart-caption">Dispositivo Nervik — frontera física: carcasa Variante B, PETG, IP54. Módulos M1–M7 dentro de la carcasa; de M7 salen los eventos hacia app, nube y portal web.</p>
+
+<table>
+<thead>
+<tr>
+<th>Módulo</th>
+<th>Función</th>
+<th>Elementos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1 · Interfaz vehicular</td>
+<td>Adquirir telemetría</td>
+<td>Transceptor CAN aislado, modo listen-only, protección ISO 7637-2, <strong>sin actuador de motor</strong></td>
+</tr>
+<tr>
+<td>M2 · Energía</td>
+<td>Alimentar y sostener ante corte</td>
+<td>DC-DC de 9 a 36 V, protección de polaridad, batería LiFePO₄ ≥ 72 h, reposo &lt; 50 mW</td>
+</tr>
+<tr>
+<td>M3 · Sensado</td>
+<td>Observar el entorno físico y de radio</td>
+<td>GNSS multiconstelación, IMU de 6 ejes ±16 g, monitor RF (RSSI y C/N₀), sensor de manipulación</td>
+</tr>
+<tr>
+<td>M4 · Procesamiento</td>
+<td>Decidir localmente</td>
+<td>MCU ARM Cortex-M ≥ 133 MHz y ≥ 264 kB de RAM, firmware en C con interrupciones GPIO, TinyML ≤ 256 kB, inferencia ≤ 100 ms</td>
+</tr>
+<tr>
+<td>M5 · Registro local</td>
+<td>Conservar evidencia</td>
+<td>Flash ≥ 8 MB, bitácora de ≥ 30 días, eventos firmados con HMAC</td>
+</tr>
+<tr>
+<td>M6 · Interfaz local</td>
+<td>Informar al instalador</td>
+<td>3 LED y 2 botones</td>
+</tr>
+<tr>
+<td>M7 · Comunicación</td>
+<td>Enlazar cuando se pueda</td>
+<td>LTE Cat-M1/NB-IoT con respaldo 2G, cola y reintento, módulo homologado por el IFT</td>
+</tr>
+</tbody>
+</table>
+<p>Interfaces clave: J1939/CAN 2.0B a 250 kbit/s por conector Deutsch de 9 pines (IF-1); SPI, I²C y UART hacia el núcleo (IF-2 a IF-6); MQTT o HTTPS sobre TLS hacia la nube, con autenticación mutua (IF-8).</p>
+<h2 id="paso-4-pds-completo">Paso 4 — PDS completo</h2>
+<h3 id="prompt-2-claude-validar-y-completar-el-pds">Prompt 2 (Claude) → Validar y completar el PDS</h3>
+<p>Se pidió a Claude un diagnóstico de lo que faltaba y que completara el PDS con valores objetivo defendibles. El resultado fue el <strong>PDS v1.0</strong>, de 14 páginas: 56 requisitos en 10 categorías, cada uno con métrica, valor objetivo, prioridad (O = obligatorio, D = deseable) y método de verificación.</p>
+<table>
+<thead>
+<tr>
+<th>Categoría</th>
+<th>Ejemplos de requisitos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Desempeño (F)</td>
+<td>Detección ≤ 5 s (F-01); ≤ 1 falso positivo por cada 1,000 km (F-02); decisión con ≥ 3 señales (F-03); 100% de funciones sin enlace (F-05)</td>
+</tr>
+<tr>
+<td>Interfaces (I)</td>
+<td>J1939 por Deutsch de 9 pines (I-01); <strong>cero tramas transmitidas al bus</strong> (I-02); LTE-M/NB-IoT + 2G (I-04)</td>
+</tr>
+<tr>
+<td>Energía (E)</td>
+<td>9 a 36 V (E-01); ≤ 2 W en operación (E-02); ≤ 50 mW en reposo (E-03); ≥ 72 h de respaldo (E-04)</td>
+</tr>
+<tr>
+<td>Procesamiento (P)</td>
+<td>Cortex-M ≥ 133 MHz (P-01); modelo ≤ 256 kB (P-02); HMAC-SHA256 por evento (P-04); registro imposible de borrar (P-05)</td>
+</tr>
+<tr>
+<td>Físico (M)</td>
+<td>90 × 60 × 25 mm (M-01); ≤ 150 g (M-02); cuña Variante B (M-03); IP54 (M-05)</td>
+</tr>
+<tr>
+<td>Ambiente (A)</td>
+<td>−10 a +70 °C de operación (A-01)</td>
+</tr>
+<tr>
+<td>Fiabilidad (R)</td>
+<td>5 años de vida (R-01); autoprueba ≤ 30 s (R-04)</td>
+</tr>
+<tr>
+<td>Normatividad (N)</td>
+<td>Módem homologado por el IFT (N-01); NOM-151 (N-03); protección de datos personales (N-04); falla segura (N-06)</td>
+</tr>
+<tr>
+<td>Costo (C)</td>
+<td>BOM ≤ $650 a 100 unidades (C-01); precio de $1,800 + $300 al mes (C-03)</td>
+</tr>
+<tr>
+<td>Instalación (U)</td>
+<td>≤ 10 min sin herramienta especializada (U-01); sin cortar cables (U-02)</td>
+</tr>
+</tbody>
+</table>
+<p>El PDS incluye además una <strong>máquina de estados de alerta</strong> de cuatro niveles (N0 normal, N1 observación, N2 sospecha, N3 evento confirmado), en la que <strong>ningún nivel actúa sobre el vehículo</strong>, y una matriz de trazabilidad necesidad → requisito → módulo → prueba.</p>
+<div class="admonition note">
+<p class="admonition-title">Tres observaciones que dejó la revisión</p>
+<ul>
+<li>El modo <strong>listen-only (I-02)</strong> queda como requisito obligatorio: es la justificación formal de por qué se eliminó el actuador, como decisión de diseño que retira un riesgo.</li>
+<li><strong>F-02 (falsos positivos)</strong> es el único requisito obligatorio que no se puede verificar en banco; exige kilómetros de ruta reales, así que conviene empezar a recolectar datos ya.</li>
+<li>Los valores son objetivos, no mediciones; C-01 y E-03 son los más apretados.</li>
+</ul>
+</div>
+<h2 id="paso-5-investigacion-de-componentes-y-bom-preliminar">Paso 5 — Investigación de componentes y BOM preliminar</h2>
+<h3 id="prompt-perplexity-componentes-precios-y-tiempos-de-entrega">Prompt (Perplexity) → Componentes, precios y tiempos de entrega</h3>
+<p>Se pidió desglosar el costo de un MVP de 10 unidades con componentes, proveedores mexicanos e internacionales y precios. El BOM preliminar se basó en un ESP32-S3, CAN MCP2515 + TJA1050, módulo RF, LoRa, SIM800L, flash, RTC y PCB de JLCPCB:</p>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BOM electrónico con GSM</td>
+<td>$1,810 por unidad</td>
+</tr>
+<tr>
+<td>BOM ajustado sin GSM</td>
+<td>$1,531 por unidad</td>
+</tr>
+<tr>
+<td>Carcasa y manufactura (10 u)</td>
+<td>$1,170 por unidad</td>
+</tr>
+<tr>
+<td>Desarrollo embebido e IA (estimado por horas)</td>
+<td>$375,000</td>
+</tr>
+<tr>
+<td>App y plataforma web (6 meses)</td>
+<td>$185,900</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">Hallazgo para la Semana 7</p>
+<p>El BOM preliminar no coincide con el PDS (usa ESP32-S3 y LoRa, mientras que el PDS pide Cortex-M y LTE-M). En la Semana 7 se recotizó todo con la arquitectura del PDS.</p>
+</div>
+<h2 id="conclusion-de-la-semana">Conclusión de la semana</h2>
+<p>El PDS transformó una idea defendible en un contrato de diseño: cada decisión posterior (forma, componentes, precio) se justifica contra un requisito numerado. Tres decisiones definen el producto: la IA en el borde, el modo de solo escucha y J1939 en lugar de OBD-II. El mayor riesgo técnico no está en el hardware sino en los datos: sin kilómetros reales no hay forma de demostrar F-02.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "content.tooltips", "navigation.top"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

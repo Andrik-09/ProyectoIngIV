@@ -1,0 +1,1120 @@
+/* ==========================================================================
+   Tema propio — Paleta Ibero Puebla (gris / rojo / negro / blanco)
+   Sobrescribe las variables de Material for MkDocs (slate) y define los
+   componentes usados en la página principal (hero, tarjeta "Sobre mí",
+   tarjetas de semanas).
+   ========================================================================== */
+
+:root,
+[data-md-color-scheme="slate"] {
+  --ibero-red: #E3000F;
+  --ibero-red-light: #ff3b3b;
+  --ibero-red-dark: #B3000C;
+  --bg-black: #121212;
+  --bg-dark-gray: #1E1E1E;
+  --bg-light-gray: #2D2D2D;
+  --text-white: #FFFFFF;
+  --text-gray: #CCCCCC;
+  --border-color: #444444;
+
+  /* Material core */
+  --md-default-bg-color: var(--bg-black);
+  --md-default-fg-color: var(--text-white);
+  --md-default-fg-color--light: var(--text-gray);
+  --md-default-fg-color--lighter: #8A8A8A;
+  --md-default-fg-color--lightest: var(--border-color);
+
+  --md-primary-fg-color: var(--ibero-red);
+  --md-primary-fg-color--light: var(--ibero-red-light);
+  --md-primary-fg-color--dark: var(--ibero-red-dark);
+  --md-primary-bg-color: var(--text-white);
+  --md-primary-bg-color--light: var(--text-white);
+
+  --md-accent-fg-color: var(--ibero-red);
+  --md-accent-fg-color--transparent: rgba(227, 0, 15, 0.1);
+  --md-accent-bg-color: var(--text-white);
+
+  --md-typeset-color: var(--text-gray);
+  --md-typeset-a-color: var(--ibero-red);
+
+  --md-code-bg-color: var(--bg-black);
+  --md-code-fg-color: var(--text-white);
+
+  --md-footer-bg-color: var(--bg-dark-gray);
+  --md-footer-bg-color--dark: var(--bg-black);
+  --md-footer-fg-color: var(--text-white);
+  --md-footer-fg-color--light: var(--text-gray);
+}
+
+body,
+.md-typeset {
+  background-color: var(--bg-black);
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  color: var(--text-white);
+}
+
+.md-typeset a:hover {
+  color: var(--ibero-red-light);
+}
+
+.md-typeset table:not([class]) {
+  background-color: var(--bg-dark-gray);
+}
+.md-typeset table:not([class]) th {
+  background-color: var(--bg-light-gray);
+  color: var(--text-white);
+}
+
+/* ==========================================================================
+   Landing page propio — reemplaza el layout genérico de documentación
+   en la portada. El resto del sitio conserva el theme de Material.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-4%, 6%) scale(1.08); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { filter: drop-shadow(0 0 18px rgba(227, 0, 15, 0.35)); }
+  50%      { filter: drop-shadow(0 0 32px rgba(227, 0, 15, 0.6)); }
+}
+
+.landing {
+  overflow-x: clip;
+}
+
+/* ---- Hero ---------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 4.5rem 1.5rem 5rem;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  margin-top: -1.2rem;
+  margin-bottom: 2.5rem;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(227, 0, 15, 0.30), transparent 45%),
+    radial-gradient(circle at 82% 75%, rgba(227, 0, 15, 0.22), transparent 50%),
+    var(--bg-black);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 42rem;
+  height: 42rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(227, 0, 15, 0.18), transparent 70%);
+  animation: drift 14s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero::before { top: -18rem; left: -14rem; }
+.hero::after  { bottom: -20rem; right: -12rem; animation-delay: -7s; }
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero .logo {
+  width: 130px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  animation: pulseGlow 5s ease-in-out infinite;
+}
+
+.hero .eyebrow {
+  display: inline-block;
+  color: var(--ibero-red-light);
+  background: rgba(227, 0, 15, 0.12);
+  border: 1px solid rgba(227, 0, 15, 0.4);
+  border-radius: 999px;
+  padding: 0.3rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 {
+  font-family: "Space Grotesk", "Segoe UI", Roboto, sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.6rem !important;
+  border: none !important;
+  background: linear-gradient(120deg, var(--text-white) 40%, var(--ibero-red-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero .subtitle {
+  color: var(--text-gray);
+  font-size: 1.15rem;
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+/* ---- Secciones genéricas de la landing ------------------------------ */
+
+.landing section.block {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem;
+}
+
+.landing .section-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.landing .section-heading .tag {
+  font-family: "Space Grotesk", monospace;
+  color: var(--ibero-red);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.landing .section-heading h2 {
+  margin: 0 !important;
+  border: none !important;
+  font-family: "Space Grotesk", "Segoe UI", Roboto, sans-serif;
+}
+
+.landing .section-heading::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border-color), transparent);
+}
+
+/* ---- Tarjeta "Sobre mí" --------------------------------------------- */
+
+.about-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1px;
+  background-color: var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+}
+
+.about-item {
+  background-color: var(--bg-dark-gray);
+  padding: 1.5rem 1.4rem;
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  transition: background-color 0.2s ease;
+}
+
+.about-item:hover {
+  background-color: var(--bg-light-gray);
+}
+
+.about-item .icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  filter: grayscale(0.1);
+}
+
+.about-item .label {
+  display: block;
+  color: var(--ibero-red);
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+}
+
+.about-item .value {
+  display: block;
+  color: var(--text-white);
+  font-size: 1.02rem;
+  word-break: break-word;
+}
+
+/* ---- Botones grandes de semanas -------------------------------------- */
+
+.week-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.week-btn {
+  --i: 0;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  background: linear-gradient(155deg, var(--bg-dark-gray) 0%, var(--bg-black) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.6rem 1.6rem;
+  text-decoration: none !important;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease both;
+  animation-delay: calc(var(--i) * 0.09s);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.week-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(227, 0, 15, 0.15), transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.week-btn:hover {
+  transform: translateY(-4px);
+  border-color: var(--ibero-red);
+  box-shadow: 0 16px 35px rgba(227, 0, 15, 0.2);
+}
+
+.week-btn:hover::before {
+  transform: translateX(100%);
+}
+
+.week-btn .index {
+  font-family: "Space Grotesk", monospace;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--ibero-red);
+  opacity: 0.75;
+  min-width: 3rem;
+}
+
+.week-btn .body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.week-btn .label {
+  color: var(--ibero-red-light);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.week-btn .title {
+  color: var(--text-white) !important;
+  font-family: "Space Grotesk", "Segoe UI", Roboto, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.week-btn .desc {
+  color: var(--text-gray);
+  font-size: 0.88rem;
+}
+
+.week-btn .arrow {
+  align-self: center;
+  font-size: 1.4rem;
+  color: var(--text-gray);
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.week-btn:hover .arrow {
+  transform: translateX(6px);
+  color: var(--ibero-red-light);
+}
+
+.week-btn.soon {
+  opacity: 0.5 !important;
+  pointer-events: none;
+  border-style: dashed;
+  animation: none;
+}
+.week-btn.soon .index,
+.week-btn.soon .label { opacity: 0.4; }
+
+/* ---- Ajustes en pantallas angostas ----------------------------------- */
+
+@media (max-width: 480px) {
+  .hero { padding: 3.5rem 1.2rem 3.5rem; }
+
+  .week-btn {
+    padding: 1.3rem 1.2rem;
+    gap: 0.8rem;
+  }
+  .week-btn .index {
+    font-size: 1.6rem;
+    min-width: 0;
+  }
+}
+
+/* ==========================================================================
+   Menú global de navegación (botón hamburguesa en el header)
+   ========================================================================== */
+
+.site-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 0.6rem;
+}
+
+.site-menu__button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.site-menu__button:hover {
+  background: rgba(0, 0, 0, 0.32);
+  border-color: var(--text-white);
+}
+
+.site-menu__button span {
+  display: block;
+  width: 1.15rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text-white);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.site-menu.is-open .site-menu__button span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.site-menu.is-open .site-menu__button span:nth-child(2) {
+  opacity: 0;
+}
+.site-menu.is-open .site-menu__button span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.site-menu__panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 1000;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.6rem;
+  background-color: var(--bg-dark-gray);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.site-menu.is-open .site-menu__panel {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.site-menu__title {
+  padding: 0.4rem 0.6rem;
+  color: var(--text-gray);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.site-menu__link {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.55rem 0.6rem;
+  border-radius: 6px;
+  color: var(--text-white) !important;
+  text-decoration: none !important;
+  font-size: 0.92rem;
+  transition: background-color 0.15s ease;
+}
+
+.site-menu__link:hover {
+  background-color: var(--bg-light-gray);
+}
+
+.site-menu__link.is-active {
+  background-color: rgba(227, 0, 15, 0.18);
+  color: var(--ibero-red-light) !important;
+}
+
+.site-menu__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 6px;
+  background-color: var(--bg-light-gray);
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Listas de definición — usadas para detallar ideas (título + descripción
+   + factor Wow) en las páginas de cada semana.
+   ========================================================================== */
+
+.md-typeset dl {
+  margin: 1.2rem 0;
+}
+
+.md-typeset dt {
+  margin-top: 1.4rem;
+  color: var(--text-white);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.md-typeset dt:first-child {
+  margin-top: 0;
+}
+
+.md-typeset dd {
+  margin: 0.4rem 0 0 0;
+  padding: 0.15rem 0 0.15rem 1rem;
+  border-left: 2px solid var(--ibero-red);
+  color: var(--text-gray);
+}
+
+/* ==========================================================================
+   Encabezado de bitácora (autor / equipo) en páginas de semana
+   ========================================================================== */
+
+.bitacora-meta {
+  display: block;
+  color: var(--text-gray);
+  font-size: 0.95rem;
+  margin: -0.5rem 0 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.bitacora-meta strong {
+  color: var(--text-white);
+}
+
+/* ==========================================================================
+   Tarjeta de figura (para imágenes técnicas embebidas: bocetos, planos)
+   ========================================================================== */
+
+.figure-card {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: var(--text-white);
+  border: 1px solid var(--border-color);
+  border-top: 4px solid var(--ibero-red);
+  border-radius: 10px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+.figure-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.figure-card figcaption {
+  margin-top: 0.8rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--border-color);
+  color: var(--text-gray);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Contenedor genérico para gráficas SVG propias
+   ========================================================================== */
+
+.chart-card {
+  margin: 1.5rem 0;
+  padding: 1.25rem 1.25rem 0.5rem;
+  background-color: var(--bg-dark-gray);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.chart-card svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+.chart-card .chart-caption {
+  margin: 0.6rem 0 0.9rem;
+  color: var(--text-gray);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  justify-content: center;
+  padding: 0.6rem 0 1rem;
+  font-size: 0.82rem;
+  color: var(--text-gray);
+}
+
+.chart-legend span.swatch {
+  display: inline-block;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 3px;
+  margin-right: 0.35rem;
+  vertical-align: -1px;
+}
+
+/* ==========================================================================
+   Embudo TAM / SAM / SOM
+   ========================================================================== */
+
+.funnel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1.5rem auto;
+  max-width: 44rem;
+}
+
+.funnel-tier {
+  width: 100%;
+  text-align: center;
+  padding: 1.1rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.funnel-tier .tier-name {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-white);
+  letter-spacing: 0.04em;
+}
+
+.funnel-tier .tier-detail {
+  margin-top: 0.35rem;
+  font-size: 0.88rem;
+  color: var(--text-gray);
+}
+
+.funnel-tier.tam { width: 100%; background: linear-gradient(135deg, var(--ibero-red), var(--ibero-red-dark)); }
+.funnel-tier.tam .tier-detail { color: rgba(255,255,255,0.85); }
+.funnel-tier.sam { width: 74%; background-color: var(--bg-light-gray); }
+.funnel-tier.som { width: 48%; background-color: var(--bg-black); border-color: var(--ibero-red); }
+
+/* ==========================================================================
+   Línea de tiempo (vigencia de patentes)
+   ========================================================================== */
+
+.timeline {
+  margin: 1.5rem 0;
+}
+
+.timeline-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 15rem) 1fr;
+  gap: 0.9rem;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.timeline-row:last-child { border-bottom: none; }
+
+.timeline-label {
+  font-size: 0.85rem;
+  color: var(--text-gray);
+}
+
+.timeline-label strong {
+  display: block;
+  color: var(--text-white);
+  font-size: 0.9rem;
+}
+
+.timeline-track {
+  position: relative;
+  height: 1.6rem;
+  background-color: var(--bg-black);
+  border-radius: 4px;
+}
+
+.timeline-bar {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  font-size: 0.72rem;
+  color: var(--text-white);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.timeline-bar.atencion { background-color: var(--ibero-red); opacity: 0.85; }
+.timeline-bar.fuera { background-color: var(--bg-light-gray); color: var(--text-gray); }
+.timeline-bar.expirada {
+  background-image: repeating-linear-gradient(45deg, var(--border-color), var(--border-color) 4px, transparent 4px, transparent 9px);
+  border: 1px solid var(--border-color);
+  color: var(--text-gray);
+}
+
+.timeline-now {
+  position: absolute;
+  top: -0.3rem;
+  bottom: -0.3rem;
+  width: 2px;
+  background-color: var(--text-white);
+}
+
+.timeline-now::after {
+  content: "hoy";
+  position: absolute;
+  top: -1.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
+  color: var(--text-white);
+}
+
+.timeline-axis {
+  display: grid;
+  grid-template-columns: minmax(140px, 15rem) 1fr;
+  gap: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+.timeline-axis .ticks {
+  position: relative;
+  height: 1rem;
+  font-size: 0.7rem;
+  color: var(--text-gray);
+}
+
+.timeline-axis .ticks span { position: absolute; transform: translateX(-50%); }
+
+/* ==========================================================================
+   Mockup de teléfono (wireframes de app)
+   ========================================================================== */
+
+.phone-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.phone-mock {
+  width: 220px;
+  background-color: var(--bg-black);
+  border: 2px solid var(--border-color);
+  border-radius: 22px;
+  padding: 0.9rem 0.7rem;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+}
+
+.phone-mock .ph-topbar {
+  background-color: var(--bg-light-gray);
+  color: var(--text-white);
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-align: center;
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.phone-mock .ph-banner {
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.72rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.phone-mock .ph-banner.ok {
+  background-color: rgba(76, 175, 80, 0.18);
+  color: #8be39a;
+  border: 1px solid rgba(76, 175, 80, 0.4);
+}
+
+.phone-mock .ph-banner.alert {
+  background-color: rgba(227, 0, 15, 0.22);
+  color: var(--ibero-red-light);
+  border: 1px solid var(--ibero-red);
+}
+
+.phone-mock .ph-box {
+  border: 1px dashed var(--border-color);
+  border-radius: 6px;
+  padding: 0.6rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.68rem;
+  color: var(--text-gray);
+  text-align: center;
+  min-height: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-mock .ph-line {
+  font-size: 0.68rem;
+  color: var(--text-gray);
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.phone-mock .ph-btn {
+  margin-top: 0.5rem;
+  background-color: var(--ibero-red);
+  color: var(--text-white);
+  text-align: center;
+  font-size: 0.74rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.5rem;
+}
+
+.phone-caption {
+  text-align: center;
+  color: var(--text-gray);
+  font-size: 0.78rem;
+  margin-top: 0.6rem;
+  max-width: 220px;
+}
+
+/* ==========================================================================
+   Diagrama de módulos (arquitectura del sistema)
+   ========================================================================== */
+
+.arch-diagram {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.arch-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.6rem;
+}
+
+.arch-flow-label {
+  text-align: center;
+  color: var(--ibero-red-light);
+  font-size: 1.2rem;
+  margin: -0.1rem 0;
+}
+
+.arch-card {
+  border-radius: 8px;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-dark-gray);
+}
+
+.arch-card .arch-title {
+  display: block;
+  font-weight: 700;
+  color: var(--text-white);
+  font-size: 0.86rem;
+  margin-bottom: 0.3rem;
+}
+
+.arch-card .arch-items {
+  display: block;
+  font-size: 0.74rem;
+  color: var(--text-gray);
+  line-height: 1.5;
+}
+
+.funnel-tier .tier-detail {
+  display: block;
+}
+
+.arch-card.in { background-color: var(--bg-black); border-style: dashed; }
+.arch-card.sense { border-left: 3px solid #6db6ff; }
+.arch-card.proc { border-left: 3px solid var(--ibero-red); }
+.arch-card.power { border-left: 3px solid #f4c04a; }
+.arch-card.comm { border-left: 3px solid #8be39a; }
+.arch-card.out { background-color: var(--bg-black); border-style: dashed; }
+
+/* ==========================================================================
+   Barra apilada (desglose de costo)
+   ========================================================================== */
+
+.stacked-bar {
+  display: flex;
+  width: 100%;
+  height: 2.2rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  margin: 1rem 0 0.5rem;
+}
+
+.stacked-bar p { display: contents; }
+.stacked-bar .seg { display: inline-block; height: 100%; }
+
+.stacked-bar-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.4rem 1rem;
+  font-size: 0.82rem;
+  color: var(--text-gray);
+  margin-bottom: 0.5rem;
+}
+
+.stacked-bar-legend .item { display: flex; align-items: center; gap: 0.5rem; }
+
+.stacked-bar-legend .swatch {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 3px;
+  flex: none;
+}
+
+/* ==========================================================================
+   Canvas de mercado (grid de una página, estilo tarjetas)
+   ========================================================================== */
+
+.canvas-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background-color: var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+.canvas-cell {
+  background-color: var(--bg-dark-gray);
+  padding: 1.1rem 1.2rem;
+  grid-column: span 6;
+}
+
+.canvas-cell.span-3 { grid-column: span 3; }
+.canvas-cell.span-2 { grid-column: span 2; }
+
+.canvas-cell.highlight {
+  background-color: var(--bg-black);
+  border-top: 3px solid var(--ibero-red);
+}
+
+.canvas-title {
+  color: var(--ibero-red);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.canvas-field {
+  margin: 0 0 0.7rem;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text-gray);
+}
+
+.canvas-field:last-child { margin-bottom: 0; }
+
+.canvas-field .flabel {
+  display: block;
+  color: var(--text-white);
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.15rem;
+}
+
+@media (max-width: 720px) {
+  .canvas-cell.span-3,
+  .canvas-cell.span-2 {
+    grid-column: span 6;
+  }
+}
+
+/* ==========================================================================
+   Comparador de estadísticas DFM (antes/después, con flecha)
+   ========================================================================== */
+
+.dfm-compare {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.dfm-stat {
+  min-width: 170px;
+  padding: 1.1rem 1.5rem;
+  text-align: center;
+  background-color: var(--bg-dark-gray);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.dfm-stat.highlight {
+  background-color: var(--bg-black);
+  border-color: var(--ibero-red);
+  border-top: 3px solid var(--ibero-red);
+}
+
+.dfm-stat .dfm-value {
+  display: block;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text-white);
+}
+
+.dfm-stat .dfm-sub {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--text-gray);
+}
+
+.dfm-arrow {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--ibero-red);
+}
+
+/* ==========================================================================
+   Tarjeta de expediente (registro de evento, estilo documento firmado)
+   ========================================================================== */
+
+.expediente-card {
+  margin: 1.5rem 0;
+  padding: 1.5rem 1.75rem;
+  background-color: var(--bg-dark-gray);
+  border: 1px solid var(--border-color);
+  border-top: 4px solid var(--ibero-red);
+  border-radius: 10px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+.expediente-stamp {
+  display: inline-block;
+  margin-bottom: 1.1rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--ibero-red);
+  border-radius: 4px;
+  color: var(--ibero-red-light);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.expediente-fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 1.5rem;
+  margin-bottom: 1.3rem;
+}
+
+.expediente-chrono {
+  margin: 0 0 1.3rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.expediente-row {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.85rem;
+}
+
+.expediente-row:last-child { border-bottom: none; }
+
+.expediente-row .etime {
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  color: var(--ibero-red-light);
+}
+
+.expediente-row .etext { color: var(--text-gray); }
+
+.expediente-hash {
+  margin-top: 0.8rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-color);
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  color: var(--text-gray);
+  word-break: break-all;
+}
+
+@media (max-width: 600px) {
+  .expediente-fields { grid-template-columns: 1fr; }
+}
