@@ -996,3 +996,125 @@ body,
     grid-column: span 6;
   }
 }
+
+/* ==========================================================================
+   Comparador de estadísticas DFM (antes/después, con flecha)
+   ========================================================================== */
+
+.dfm-compare {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.dfm-stat {
+  min-width: 170px;
+  padding: 1.1rem 1.5rem;
+  text-align: center;
+  background-color: var(--bg-dark-gray);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.dfm-stat.highlight {
+  background-color: var(--bg-black);
+  border-color: var(--ibero-red);
+  border-top: 3px solid var(--ibero-red);
+}
+
+.dfm-stat .dfm-value {
+  display: block;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text-white);
+}
+
+.dfm-stat .dfm-sub {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--text-gray);
+}
+
+.dfm-arrow {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--ibero-red);
+}
+
+/* ==========================================================================
+   Tarjeta de expediente (registro de evento, estilo documento firmado)
+   ========================================================================== */
+
+.expediente-card {
+  margin: 1.5rem 0;
+  padding: 1.5rem 1.75rem;
+  background-color: var(--bg-dark-gray);
+  border: 1px solid var(--border-color);
+  border-top: 4px solid var(--ibero-red);
+  border-radius: 10px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+.expediente-stamp {
+  display: inline-block;
+  margin-bottom: 1.1rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--ibero-red);
+  border-radius: 4px;
+  color: var(--ibero-red-light);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.expediente-fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 1.5rem;
+  margin-bottom: 1.3rem;
+}
+
+.expediente-chrono {
+  margin: 0 0 1.3rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.expediente-row {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.85rem;
+}
+
+.expediente-row:last-child { border-bottom: none; }
+
+.expediente-row .etime {
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  color: var(--ibero-red-light);
+}
+
+.expediente-row .etext { color: var(--text-gray); }
+
+.expediente-hash {
+  margin-top: 0.8rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-color);
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  color: var(--text-gray);
+  word-break: break-all;
+}
+
+@media (max-width: 600px) {
+  .expediente-fields { grid-template-columns: 1fr; }
+}

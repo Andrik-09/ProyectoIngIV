@@ -14,8 +14,8 @@
     { href: "/semana4/", icon: "4", label: "Semana 4 — Mercado y valor" },
     { href: "/semana5/", icon: "5", label: "Semana 5 — PDS y arquitectura" },
     { href: "/semana6/", icon: "6", label: "Semana 6 — Concepto de diseño" },
-    { href: "/semana7/", icon: "7", label: "Semana 7 — Viabilidad" }
-    // { href: "/semana8/", icon: "8", label: "Semana 8 — ..." },
+    { href: "/semana7/", icon: "7", label: "Semana 7 — Viabilidad" },
+    { href: "/semana8/", icon: "8", label: "Semana 8 — Revisión DFM" }
   ];
 
   function getBase() {

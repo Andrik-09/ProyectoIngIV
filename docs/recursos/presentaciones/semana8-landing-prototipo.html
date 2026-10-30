@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nervik — Evidencia cuando el jammer apaga todo</title>
+<style>
+  :root { --k:#000; --g:#555; --l:#e6e6e6; --w:#fff; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: Arial, Helvetica, sans-serif; color:var(--k); background:var(--w); line-height:1.5; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+  header { border-bottom: 2px solid var(--k); }
+  header .wrap { display:flex; justify-content:space-between; align-items:center; padding-top:14px; padding-bottom:14px; }
+  .logo { font-weight:900; letter-spacing:.18em; font-size:20px; }
+  .tag { font-size:12px; color:var(--g); }
+  .hero { padding: 48px 20px 36px; }
+  h1 { font-size: clamp(28px, 5vw, 44px); line-height:1.12; margin:0 0 16px; }
+  .lead { font-size: 18px; max-width: 680px; margin: 0 0 26px; }
+  .btn { display:inline-block; background:var(--k); color:var(--w); border:2px solid var(--k); padding:14px 22px; font-size:16px; font-weight:700; cursor:pointer; border-radius:4px; }
+  .btn.sec { background:var(--w); color:var(--k); }
+  .btn:focus-visible, input:focus-visible, select:focus-visible { outline:3px solid var(--g); outline-offset:2px; }
+  section { padding: 34px 0; border-top: 1px solid var(--l); }
+  h2 { font-size: 24px; margin: 0 0 18px; }
+  .steps { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:16px; }
+  .step { border:2px solid var(--k); border-radius:6px; padding:16px; }
+  .step b { display:block; font-size:30px; line-height:1; margin-bottom:8px; }
+  .no { border-left:6px solid var(--k); padding:6px 0 6px 14px; margin-top:18px; }
+  .price { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:16px; }
+  .card { border:2px solid var(--k); border-radius:6px; padding:20px; }
+  .amount { font-size:38px; font-weight:900; }
+  .unit { color:var(--g); font-size:14px; }
+  ul { padding-left: 20px; margin: 10px 0 0; }
+  .exp { border:2px dashed var(--k); border-radius:6px; padding:18px; font-family: "Courier New", monospace; font-size:14px; }
+  .exp .stamp { display:inline-block; border:2px solid var(--k); padding:2px 8px; font-weight:700; font-family: Arial, sans-serif; font-size:12px; margin-bottom:10px; }
+  .row { display:grid; grid-template-columns: 92px 1fr; gap:8px; padding:6px 0; border-bottom:1px solid var(--l); }
+  .hash { word-break: break-all; color: var(--g); font-size:12px; margin-top:10px; }
+  #apartar { background: var(--l); }
+  form { display:grid; gap:12px; max-width:520px; }
+  label { font-weight:700; font-size:14px; }
+  input, select { width:100%; padding:11px; font-size:16px; border:2px solid var(--k); border-radius:4px; background:var(--w); }
+  .ok { border:2px solid var(--k); background:var(--w); padding:18px; border-radius:6px; max-width:520px; }
+  .hidden { display:none; }
+  .small { font-size:13px; color:var(--g); }
+  footer { border-top:2px solid var(--k); padding:18px 0 30px; font-size:13px; color:var(--g); }
+</style>
+</head>
+<body>
+<header><div class="wrap"><span class="logo">NERVIK</span><span class="tag">Seguridad de carga para flotas medianas</span></div></header>
+
+<main>
+<div class="wrap hero">
+  <h1>Cuando el jammer apaga todo, Nervik sigue contando lo que pasó.</h1>
+  <p class="lead">Flotas medianas en corredores de riesgo saben qué pasó durante un ataque con inhibidor, con evidencia firmada para negociar con su aseguradora en lugar de pagar custodia.</p>
+  <a class="btn" href="#apartar">Apartar unidad piloto</a>
+  <a class="btn sec" href="#expediente">Ver un expediente</a>
+</div>
+
+<section><div class="wrap">
+  <h2>Cómo funciona</h2>
+  <div class="steps">
+    <div class="step"><b>1</b>Se conecta al conector verde de 9 pines del tractocamión y se fija con dos cinchos. Sin perforar, en menos de 10 minutos.</div>
+    <div class="step"><b>2</b>Detecta la interferencia dentro de la unidad, aunque no haya señal de GPS ni de celular. Avisa en cabina con luces.</div>
+    <div class="step"><b>3</b>Guarda un expediente firmado de cada ataque: hora, última posición, velocidad y paradas. Se envía en cuanto regresa la señal.</div>
+  </div>
+  <p class="no"><b>Lo que no hace:</b> no apaga el motor ni manda órdenes al camión. Solo escucha, para no poner en riesgo al operador.</p>
+</div></section>
+
+<section id="expediente"><div class="wrap">
+  <h2>Así se ve un expediente</h2>
+  <div class="exp">
+    <span class="stamp">EJEMPLO ILUSTRATIVO · DATOS FICTICIOS</span>
+    <div class="row"><span>Unidad</span><span>ECO-14 · Corredor Puebla–Oaxaca</span></div>
+    <div class="row"><span>02:14:07</span><span>Caída de señal en todos los satélites a la vez (no es túnel: la unidad iba a 82 km/h en tramo abierto)</span></div>
+    <div class="row"><span>02:14:20</span><span>Se pierde la red celular. Alerta en cabina encendida.</span></div>
+    <div class="row"><span>02:16:41</span><span>Parada no programada. Velocidad 0 km/h, motor encendido.</span></div>
+    <div class="row"><span>02:16:41</span><span>Última posición válida guardada antes del bloqueo.</span></div>
+    <div class="row"><span>02:31:55</span><span>Fin de la interferencia. Expediente enviado a la central.</span></div>
+    <div class="hash">Firma del expediente: 9f3c…a71e (cualquier cambio posterior invalida la firma)</div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Precio</h2>
+  <div class="price">
+    <div class="card"><div class="amount">$1,800</div><div class="unit">por unidad, una sola vez, instalado</div>
+      <ul><li>Dispositivo y cable para conector de 9 pines</li><li>Batería de respaldo de 72 horas</li></ul></div>
+    <div class="card"><div class="amount">$300</div><div class="unit">por unidad al mes</div>
+      <ul><li>App de la central de monitoreo</li><li>Conectividad celular incluida</li><li>Expedientes firmados de cada evento</li><li>Reporte de riesgo para tu aseguradora</li></ul></div>
+  </div>
+  <p class="small">Precios en pesos mexicanos, más IVA.</p>
+</div></section>
+
+<section id="apartar"><div class="wrap">
+  <h2>Apartar unidad piloto</h2>
+  <p>El lote piloto es de 10 unidades. Apartar no tiene costo; te llamamos para confirmar fecha de instalación.</p>
+  <form id="f" novalidate>
+    <div><label for="n">Nombre</label><input id="n" autocomplete="name" required></div>
+    <div><label for="e">Empresa o flota</label><input id="e" required></div>
+    <div><label for="u">Unidades que quieres proteger</label>
+      <select id="u"><option>1</option><option>2</option><option>3 a 5</option><option>6 a 10</option><option>Más de 10</option></select></div>
+    <div><label for="c">Corredor principal</label><input id="c" placeholder="Ej. Puebla–Oaxaca"></div>
+    <div><label for="t">Teléfono</label><input id="t" type="tel" autocomplete="tel" required></div>
+    <p id="err" class="small hidden" role="alert">Falta nombre, empresa o teléfono.</p>
+    <button class="btn" type="submit">Apartar mi unidad</button>
+  </form>
+  <div id="ok" class="ok hidden" role="status" aria-live="polite"></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">Nervik · Proyecto de Ingeniería IV · Equipo 2 · IBERO Puebla</div></footer>
+
+<script>
+  const f = document.getElementById('f');
+  f.addEventListener('submit', ev => {
+    ev.preventDefault();
+    const v = id => document.getElementById(id).value.trim();
+    if (!v('n') || !v('e') || !v('t')) { document.getElementById('err').classList.remove('hidden'); return; }
+    const esc = s => s.replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+    const ok = document.getElementById('ok');
+    ok.innerHTML = '<h2>Tu unidad quedó apartada</h2>' +
+      '<p><b>' + esc(v('n')) + '</b> · ' + esc(v('e')) + '<br>Unidades: ' + esc(v('u')) +
+      (v('c') ? ' · Corredor: ' + esc(v('c')) : '') + '<br>Teléfono: ' + esc(v('t')) + '</p>' +
+      '<p>No se cobró nada. Te llamamos para confirmar la instalación.</p>' +
+      '<button class="btn sec" type="button" id="again">Registrar otra persona</button>';
+    f.classList.add('hidden'); ok.classList.remove('hidden');
+    document.getElementById('again').addEventListener('click', () => { f.reset(); f.classList.remove('hidden'); ok.classList.add('hidden'); document.getElementById('err').classList.add('hidden'); });
+  });
+</script>
+</body>
+</html>
