@@ -87,8 +87,58 @@ hide:
 <span class="index">02</span>
 <span class="body">
 <span class="label">Semana 2</span>
-<span class="title">Búsqueda de oportunidades (Modo Explorador)</span>
-<span class="desc">Perplexity + Claude en paralelo: insight, Pain-Gain Map, SCAMPER, Remix y validación de "Bahía Cero".</span>
+<span class="title">Búsqueda de oportunidades (Modo Estresor)</span>
+<span class="desc">De Kallpa Route AI a Nervik: auditoría de ecosistema, Pain-Gain Map, SCAMPER y elección de oportunidad.</span>
+</span>
+<span class="arrow">→</span>
+</a>
+
+<a class="week-btn" href="semana3/" style="--i:2">
+<span class="index">03</span>
+<span class="body">
+<span class="label">Semana 3</span>
+<span class="title">Propiedad intelectual y marca</span>
+<span class="desc">Marca Nervik, vigilancia de patentes y conclusión de libertad de operación (FTO).</span>
+</span>
+<span class="arrow">→</span>
+</a>
+
+<a class="week-btn" href="semana4/" style="--i:3">
+<span class="index">04</span>
+<span class="body">
+<span class="label">Semana 4</span>
+<span class="title">Mercado, valor y propuesta de valor</span>
+<span class="desc">Segmento, TAM/SAM/SOM, Blue Ocean y la propuesta de valor puesta a prueba en la calle.</span>
+</span>
+<span class="arrow">→</span>
+</a>
+
+<a class="week-btn" href="semana5/" style="--i:4">
+<span class="index">05</span>
+<span class="body">
+<span class="label">Semana 5</span>
+<span class="title">PDS y arquitectura del sistema</span>
+<span class="desc">Especificación verificable de 56 requisitos y la arquitectura de 7 módulos del dispositivo.</span>
+</span>
+<span class="arrow">→</span>
+</a>
+
+<a class="week-btn" href="semana6/" style="--i:5">
+<span class="index">06</span>
+<span class="body">
+<span class="label">Semana 6</span>
+<span class="title">Generación y selección de concepto</span>
+<span class="desc">Tabla morfológica, matriz de Pugh y el boceto técnico de "Cuña Guardián".</span>
+</span>
+<span class="arrow">→</span>
+</a>
+
+<a class="week-btn" href="semana7/" style="--i:6">
+<span class="index">07</span>
+<span class="body">
+<span class="label">Semana 7</span>
+<span class="title">Viabilidad técnica y económica</span>
+<span class="desc">BOM cotizado, costo de la IA, modelo económico y flujo de caja a 36 meses.</span>
 </span>
 <span class="arrow">→</span>
 </a>
