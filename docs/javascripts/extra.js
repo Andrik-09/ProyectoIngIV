@@ -9,8 +9,13 @@
   var PAGES = [
     { href: "/", icon: "🏠", label: "Página principal" },
     { href: "/semana1/", icon: "1", label: "Semana 1 — SCAMPER" },
-    { href: "/semana2/", icon: "2", label: "Semana 2 — Búsqueda de oportunidades" }
-    // { href: "/semana3/", icon: "3", label: "Semana 3 — ..." },
+    { href: "/semana2/", icon: "2", label: "Semana 2 — De Kallpa a Nervik" },
+    { href: "/semana3/", icon: "3", label: "Semana 3 — Propiedad intelectual" },
+    { href: "/semana4/", icon: "4", label: "Semana 4 — Mercado y valor" },
+    { href: "/semana5/", icon: "5", label: "Semana 5 — PDS y arquitectura" },
+    { href: "/semana6/", icon: "6", label: "Semana 6 — Concepto de diseño" },
+    { href: "/semana7/", icon: "7", label: "Semana 7 — Viabilidad" }
+    // { href: "/semana8/", icon: "8", label: "Semana 8 — ..." },
   ];
 
   function getBase() {
