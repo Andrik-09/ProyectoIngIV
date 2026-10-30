@@ -143,6 +143,16 @@ hide:
 <span class="arrow">→</span>
 </a>
 
+<a class="week-btn" href="semana8/" style="--i:7">
+<span class="index">08</span>
+<span class="body">
+<span class="label">Semana 8</span>
+<span class="title">Revisión DFM y prototipo de validación</span>
+<span class="desc">Tres escenarios de BOM, simplificación del ensamble y un prototipo de aterrizaje con expediente de ejemplo.</span>
+</span>
+<span class="arrow">→</span>
+</a>
+
 </div>
 
 </section>
