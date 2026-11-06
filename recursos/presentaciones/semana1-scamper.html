@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nodos de Navegación - Ibero Puebla</title>
+    <style>
+        :root {
+            /* Paleta Universidad Iberoamericana Puebla */
+            --ibero-red: #E3000F;
+            --bg-black: #121212;
+            --bg-dark-gray: #1E1E1E;
+            --bg-light-gray: #2D2D2D;
+            --text-white: #FFFFFF;
+            --text-gray: #CCCCCC;
+            --border-color: #444444;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-black);
+            color: var(--text-gray);
+            overflow: hidden;
+        }
+
+        #presentation-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            pointer-events: none;
+            padding: 2rem;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+        .slide.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .content-box {
+            background-color: var(--bg-dark-gray);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            max-width: 950px;
+            width: 100%;
+            border-top: 4px solid var(--ibero-red);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Encabezados */
+        h1, h2, h3 { color: var(--text-white); margin-top: 0; }
+        h1 { font-size: 2.8rem; border-bottom: 2px solid var(--ibero-red); padding-bottom: 0.5rem; }
+        h2 { font-size: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.3rem; margin-bottom: 1.5rem; }
+        h3 { font-size: 1.4rem; color: var(--ibero-red); }
+
+        /* Énfasis y enlaces */
+        strong { color: var(--text-white); }
+        em { color: var(--text-gray); }
+        a { color: var(--ibero-red); text-decoration: none; border-bottom: 1px dotted var(--ibero-red); }
+        a:hover { color: var(--text-white); border-bottom-style: solid; }
+
+        /* Código en línea y bloques de código */
+        code {
+            background-color: var(--bg-black);
+            color: var(--ibero-red);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+        pre {
+            background-color: var(--bg-black);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        pre code { color: var(--text-white); background: transparent; padding: 0; }
+
+        /* Citas (Blockquote) */
+        blockquote {
+            border-left: 4px solid var(--ibero-red);
+            background-color: var(--bg-light-gray);
+            margin: 1.5rem 0;
+            padding: 1rem 1.5rem;
+            font-style: italic;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background-color: var(--bg-black);
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 0.8rem;
+            text-align: left;
+        }
+        th { background-color: var(--bg-light-gray); color: var(--text-white); font-weight: bold; }
+
+        /* Listas y Listas de Tareas */
+        ul, ol { margin-left: 1.5rem; margin-bottom: 1rem; line-height: 1.6; }
+        li { margin-bottom: 0.5rem; }
+        .task-list { list-style-type: none; margin-left: 0; padding-left: 0; }
+        .task-list li { display: flex; align-items: center; gap: 0.5rem; }
+        input[type="checkbox"] { accent-color: var(--ibero-red); width: 1.2rem; height: 1.2rem; }
+
+        /* Admonitions (Material Style adaptado a Ibero) */
+        .admonition {
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--ibero-red);
+            background-color: var(--bg-light-gray);
+            border-radius: 0 4px 4px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        .admonition-title {
+            background-color: rgba(227, 0, 15, 0.1);
+            color: var(--text-white);
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .admonition-content { padding: 1rem; }
+        .admonition.warning { border-left-color: #ff9800; } /* Advertencia visual */
+        .admonition.warning .admonition-title { background-color: rgba(255, 152, 0, 0.1); }
+        .admonition.tip { border-left-color: #4caf50; }
+        .admonition.tip .admonition-title { background-color: rgba(76, 175, 80, 0.1); }
+
+        /* Separador horizontal */
+        hr { border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0; }
+
+        #controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            z-index: 100;
+        }
+        button {
+            background-color: var(--bg-light-gray);
+            color: var(--text-white);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        button:hover { background-color: var(--ibero-red); border-color: var(--ibero-red); }
+        #slide-counter { font-size: 1rem; color: var(--text-gray); font-weight: bold; }
+
+        #notes-panel {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--bg-black);
+            border-top: 2px solid var(--ibero-red);
+            padding: 2rem;
+            box-sizing: border-box;
+            transition: bottom 0.3s ease-in-out;
+            z-index: 200;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.9);
+        }
+        #notes-panel.open { bottom: 0; }
+        #notes-text {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-gray);
+        }
+        .notes-title {
+            color: var(--ibero-red);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        #toggle-notes {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--ibero-red);
+            border: none;
+            z-index: 101;
+        }
+        #toggle-notes:hover { background-color: #B3000C; }
+    </style>
+</head>
+<body>
+
+<div id="presentation-container">
+
+    <div class="slide active">
+        <div class="content-box" style="text-align: center;">
+            <!-- Uso de imagen embebida (Logo mock) -->
+            <div style="margin-bottom: 1.5rem;">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--ibero-red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+
+            <h1>Nodos de Navegación Viva</h1>
+            <h2>Innovación frugal en movilidad urbana a través de SCAMPER</h2>
+
+            <hr>
+
+            <p><strong>Desarrollado por:</strong> Andrik Pérez Luna</p>
+            <p><strong>Número de cuenta:</strong> 200851</p>
+            <p><strong>Carrera:</strong> Ingeniería Mecatrónica</p>
+            <p><strong>Materia:</strong> Diseño de Servicios / Innovación</p>
+            <p><strong>Profesor:</strong> [Nombre del Profesor]</p>
+            <p><em>Fecha: Agosto 2026</em></p>
+        </div>
+        <div class="speaker-notes" style="display:none;">
+            Buenos días. Hoy presento 'Nodos de Navegación Viva', un proyecto de innovación enfocado en resolver problemas complejos de movilidad urbana. Este concepto fue desarrollado aplicando la metodología de ideación SCAMPER. Nuestro objetivo fue demostrar que la verdadera innovación no siempre requiere alta tecnología o grandes presupuestos, sino una profunda empatía y creatividad para replantear nuestro entorno.
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="content-box">
+            <h2>El Desafío de Diseño: Tres Variables</h2>
+
+            <div class="admonition note">
+                <div class="admonition-title">📝 EL QUÉ (Formato)</div>
+                <div class="admonition-content">Diseño de un Trámite, Servicio o <strong>Experiencia de Usuario</strong>.</div>
+            </div>
+
+            <div class="admonition note">
+                <div class="admonition-title">🚫 EL CÓMO (Restricción)</div>
+                <div class="admonition-content">Enfoque <strong>Frugal / Cero Presupuesto</strong>. Solo usar recursos existentes.</div>
+            </div>
+
+            <div class="admonition note">
+                <div class="admonition-title">🚶 EL PARA QUIÉN (Contexto)</div>
+                <div class="admonition-content">Transeúntes y usuarios en zonas de <strong>Movilidad Urbana Conflictiva</strong>.</div>
+            </div>
+
+            <p><strong>Premisa fundamental:</strong> Crear impacto máximo con los recursos que el entorno <em>ya tiene a la mano</em>.</p>
+        </div>
+        <div class="speaker-notes" style="display:none;">
+            El proyecto nació con restricciones sumamente específicas que condicionaron todo el diseño. Debíamos crear un servicio o experiencia de usuario enfocado exclusivamente en transeúntes dentro de la movilidad urbana. Pero la regla más desafiante fue el 'Cómo': teníamos un enfoque estrictamente frugal, de presupuesto cero, obligándonos a pensar únicamente en los recursos que el usuario o el entorno ya tienen a la mano.
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="content-box">
+            <h2>El Dolor del Usuario</h2>
+
+            <div class="admonition warning">
+                <div class="admonition-title">⚠️ Problema Principal: Supervivencia Urbana</div>
+                <div class="admonition-content">
+                    Fricción constante y <strong>sobrecarga cognitiva</strong> en el desplazamiento diario.
+                </div>
+            </div>
+
+            <h3>Desglose del problema:</h3>
+            <ul>
+                <li>Navegación en entornos urbanos hostiles, caóticos y saturados.</li>
+                <li>Ausencia total de <code>infraestructura de apoyo</code> (sin señalética ni carriles).</li>
+                <li>El usuario resuelve problemas complejos utilizando <em>únicamente sus propios recursos físicos y mentales</em>.</li>
+            </ul>
+        </div>
+        <div class="speaker-notes" style="display:none;">
+            Al analizar a nuestro usuario, descubrimos que su dolor principal es la fricción y la sobrecarga cognitiva que sufre en entornos urbanos caóticos. El peatón navega por un ecosistema hostil, enfrentándose a la falta total de infraestructura formal. Esto lo obliga a gastar gran cantidad de energía física y mental intentando sobrevivir al caos, sintiéndose completamente ignorado por el diseño de la ciudad.
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="content-box">
+            <h2>La Paradoja y Oportunidad</h2>
+
+            <blockquote>
+                <strong>La Contradicción:</strong><br>
+                ¿Cómo orquestar un servicio estructurado e intuitivo en el espacio público sin invertir un solo peso en nueva infraestructura?
+            </blockquote>
+
+            <hr>
+
+            <h3>La Oportunidad: Parasitismo Urbano Inteligente</h3>
+            <ol>
+                <li>Hackear elementos arquitectónicos existentes.</li>
+                <li>Aprovechar el <em>crowdsourcing orgánico</em> de la comunidad.</li>
+                <li>Reutilizar mobiliario urbano y humano (comerciantes formales/informales).</li>
+                <li>Utilizar tecnología de bolsillo (<code>smartphones</code>).</li>
+            </ol>
+        </div>
+        <div class="speaker-notes" style="display:none;">
+            Aquí nos enfrentamos a una gran contradicción: ¿Cómo orquestamos un servicio estructurado sin gastar un solo peso? La respuesta la encontramos en lo que llamamos 'parasitismo urbano'. En lugar de construir infraestructura nueva, decidimos 'hackear' los elementos que ya existen, convirtiendo los hábitos colectivos, los teléfonos móviles y el ecosistema de la calle en la interfaz misma de nuestra solución.
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="content-box">
+            <h2>Pregunta Detonadora (HMW)</h2>
+
+            <div class="admonition tip">
+                <div class="admonition-title">💡 Enfoque seleccionado: Eficiencia</div>
+                <div class="admonition-content">
+                    <p style="font-size: 1.2rem; font-style: italic;">
+                        "¿Cómo podríamos optimizar las rutas de transbordo y el flujo de peatones en intersecciones conflictivas utilizando <strong>exclusivamente</strong> las señales visuales y barreras físicas que ya existen en su entorno diario?"
+                    </p>
+                </div>
+            </div>
+
+            <p><strong>Justificación:</strong> Esta pregunta ataca el dolor de la navegación caótica respetando la restricción de <code>cero_presupuesto</code>.</p>
+        </div>
+        <div class="speaker-notes" style="display:none;">
+            Para guiar nuestra ideación, formulamos esta pregunta bajo el enfoque de eficiencia. Elegimos esta pregunta porque ataca directamente el dolor de la navegación caótica y respeta nuestra restricción inicial de usar únicamente la geografía urbana y humana ya existente, sin depender de presupuestos externos o gubernamentales.
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="content-box">
+            <h2>Metodología SCAMPER</h2>
+
+            <p>Filtro de audacia aplicado para forzar el pensamiento lateral:</p>
+
+            <ul>
+                <li><strong>(S) Sustituir</strong>
+                    <ul><li><em>¿Qué elemento tradicional podemos sustituir para romper las reglas?</em></li></ul>
+                </li>
+                <li><strong>(C) Combinar</strong>
+                    <ul><li><em>¿Con qué otra industria o hábito actual podemos combinarnos?</em></li></ul>
+                </li>
+                <li><strong>(M) Magnificar / Modificar</strong>
+                    <ul><li><em>¿Qué pasa si exageramos al extremo el beneficio principal?</em></li></ul>
+                </li>
+                <li><strong>(E) Eliminar</strong>
+                    <ul><li><em>¿Qué elemento considerado "obligatorio" podemos suprimir?</em></li></ul>
+                </li>
+            </ul>
+        </div>
+        <div class="speaker-notes" style="display:none;">
+            Con el problema definido, aplicamos la matriz SCAMPER para generar ideas altamente disruptivas. Filtramos la técnica para utilizar sus cuatro enfoques más audaces: Sustituir procesos, Combinar industrias, Modificar radicalmente y Eliminar dependencias. Esta técnica nos obligó a salir de las soluciones convencionales, forzando la generación de ocho conceptos crudos pero viables.
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="content-box">
+            <h2>Ideas Generadas (Divergencia)</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Idea 1</th>
+                        <th>Idea 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sustituir</strong></td>
+                        <td>Reloj de Sombras Urbano</td>
+                        <td>Semáforo de Comportamiento</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Combinar</strong></td>
+                        <td><em>Puestos de Orientación Táctica</em></td>
+                        <td><em>Waze Peatonal de Bolsillo</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Magnificar</strong></td>
+                        <td>Pista de Obstáculos Útil</td>
+                        <td>Brújula de Texturas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Eliminar</strong></td>
+                        <td>Cruce de Movimiento Perpetuo</td>
+                        <td>Navegación Acústica</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><small>*En cursiva las ideas seleccionadas para la siguiente fase.</small></p>
+        </div>
+        <div class="speaker-notes" style="display:none;">
+            En esta fase de divergencia logramos conceptualizar ideas muy variadas. Desde sustituir las señales por un 'Reloj de Sombras', hasta eliminar la vista y usar el sonido de la ciudad. Modificamos el entorno usando texturas del suelo como brújula, y combinamos dinámicas para mapear el tráfico. Todas respetaron la regla de usar cero presupuesto adicional.
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="content-box">
+            <h2>Selección de Ideas Prometedoras</h2>
+
+            <div class="admonition note">
+                <div class="admonition-title">🎯 Idea 1: Puestos de Orientación Táctica</div>
+                <div class="admonition-content">
+                    Aprovecha la economía local informal (ambulantes) como <strong>barrera física</strong> y nodo de desvío peatonal natural.
+                </div>
+            </div>
+
+            <div class="admonition note">
+                <div class="admonition-title">🎯 Idea 2: Waze Peatonal de Bolsillo</div>
+                <div class="admonition-content">
+                    Utiliza redes de mensajería existentes (WhatsApp/Telegram) en los celulares como <strong>sensores de tráfico humano</strong> en tiempo real.
+                </div>
+            </div>
+        </div>
+        <div class="speaker-notes" style="display:none;">
+            De todas las propuestas, seleccionamos las dos con mayor potencial por su viabilidad e impacto social. Por un lado, 'Puestos de Orientación Táctica', que aprovecha el comercio informal como barreras físicas. Por otro lado, el 'Waze Peatonal de Bolsillo', que propuso usar las aplicaciones de mensajería en los teléfonos para crear una red de reportes en tiempo real.
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="content-box">
+            <h2>El Remix (Síntesis)</h2>
+
+            <p>Integración de componentes para la solución final:</p>
+
+<pre><code>def generar_solucion():
+    recurso_fisico = "Infraestructura Viva (Comerciantes)"
+    recurso_digital = "Red Digital Existente (WhatsApp/Telegram)"
+
+    concepto = recurso_fisico + recurso_digital
+    return "Red de Inteligencia Vial del Transeúnte"
+</code></pre>
+
+            <hr>
+
+            <p><strong>Resultado:</strong> Transformar la economía informal, usualmente percibida como obstrucción, en la principal infraestructura inteligente para orquestar el tránsito.</p>
+        </div>
+        <div class="speaker-notes" style="display:none;">
+            El momento clave de nuestra innovación ocurrió al combinar estas dos ideas. Tomamos la presencia física ineludible de los vendedores ambulantes y la unimos a la infraestructura digital comunitaria de WhatsApp. Esta integración nos permite resolver un problema de información transformando algo que habitualmente se considera un obstáculo en nuestra principal red de inteligencia urbana.
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="content-box">
+            <h2>Concepto: Nodos de Navegación Viva</h2>
+
+            <p>Ecosistema hiperlocal guiado por vendedores ambulantes mediante canales de chat públicos.</p>
+
+            <blockquote>
+                <strong>Flujo del Usuario (Log del Sistema):</strong><br>
+<pre style="margin-top:0.5rem;"><code>[08:00:00] Peatón detecta cuello de botella.
+[08:00:15] Localiza [Puesto Informal] con [Código QR Físico].
+[08:00:20] Escanea QR e ingresa a [Canal Comunitario].
+[08:00:25] Lee alerta de vendedor: "Calle X bloqueada".
+[08:00:30] Toma [Ruta Alternativa Segura] en tiempo real.</code></pre>
+            </blockquote>
+
+            <div class="admonition note">
+                <div class="admonition-title">📌 Factor Wow</div>
+                <div class="admonition-content">Ordena la ciudad <em>incluyendo</em> a la economía informal, no criminalizándola.</div>
+            </div>
+        </div>
+        <div class="speaker-notes" style="display:none;">
+            Así nacen los 'Nodos de Navegación Viva'. Es un ecosistema hiperlocal donde los puestos informales exhiben códigos QR. El peatón escanea el código y entra a un canal de chat. Ahí, vendedores y vecinos actúan como radares, avisando sobre calles cerradas. Es un sistema circular donde la información fluye del nodo físico al canal digital, permitiendo elegir la mejor ruta al instante.
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="content-box">
+            <h2>Evaluación DNV & Prototipado</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Criterio</th>
+                        <th>Calif.</th>
+                        <th>Justificación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Deseo</strong></td>
+                        <td>5/5</td>
+                        <td>Ahorro de tiempo al usuario; pacificación urbana.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Novedad</strong></td>
+                        <td>4/5</td>
+                        <td>Resignifica lo existente; parasita herramientas gratuitas.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Viabilidad</strong></td>
+                        <td>5/5</td>
+                        <td>Ejecutable sin software ni presupuesto público.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Prototipo de 2 Horas:</strong></p>
+            <ul class="task-list">
+                <li><input type="checkbox" checked disabled> Crear grupo público de WhatsApp.</li>
+                <li><input type="checkbox" checked disabled> Imprimir 3 códigos QR.</li>
+                <li><input type="checkbox" checked disabled> Colocar en puestos de cruce real y observar.</li>
+            </ul>
+        </div>
+        <div class="speaker-notes" style="display:none;">
+            Al evaluar el proyecto, obtuvo calificaciones sobresalientes. El 'Deseo' es altísimo por el ahorro de tiempo. La 'Novedad' radica en parasitar herramientas gratuitas y resignificar a los vendedores. Lo mejor es su 'Viabilidad': su prototipo tarda apenas dos horas. Solo necesitamos crear un grupo, imprimir tres QR, pegarlos en puestos reales y observar la interacción.
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="content-box">
+            <h2>Impacto y Conclusiones</h2>
+
+            <ul class="task-list">
+                <li><input type="checkbox" checked disabled> <strong>Resolución:</strong> Elimina la fricción peatonal empoderando a la comunidad (sin presupuesto).</li>
+                <li><input type="checkbox" checked disabled> <strong>Valor SCAMPER:</strong> Recontextualizó el problema (comercio informal) como la solución (nodos de información).</li>
+                <li><input type="checkbox" checked disabled> <strong>Diferenciador:</strong> Inclusión social para una <em>Smart City frugal</em>.</li>
+            </ul>
+
+            <br>
+            <p>Documentación anexa para revisión académica:</p>
+            <p><a href="#" onclick="alert('Simulación de descarga PDF institucional'); return false;">Descargar especificación técnica del proyecto (PDF)</a></p>
+        </div>
+        <div class="speaker-notes" style="display:none;">
+            En conclusión, este proyecto demuestra el poder de la metodología SCAMPER. Logramos tomar un problema estructural y resolverlo empoderando a la comunidad sin un solo centavo de presupuesto. Los Nodos de Navegación Viva optimizan la movilidad e integran socialmente a la economía informal, convirtiéndola en un aliado estratégico para la ciudad. Muchas gracias.
+        </div>
+    </div>
+
+</div>
+
+<!-- Controles -->
+<div id="controls">
+    <button id="prev-btn">◀ Anterior</button>
+    <span id="slide-counter">1 / 12</span>
+    <button id="next-btn">Siguiente ▶</button>
+</div>
+
+<button id="toggle-notes">Ver Guion (Teclado: N)</button>
+
+<!-- Panel de Guion -->
+<div id="notes-panel">
+    <div class="notes-title">Guion del Expositor (Lectura)</div>
+    <div id="notes-text">Cargando guion...</div>
+</div>
+
+<script>
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const counter = document.getElementById('slide-counter');
+    const toggleNotesBtn = document.getElementById('toggle-notes');
+    const notesPanel = document.getElementById('notes-panel');
+    const notesText = document.getElementById('notes-text');
+
+    let currentSlide = 0;
+    let notesOpen = false;
+
+    function updateSlide() {
+        slides.forEach((slide, index) => {
+            if (index === currentSlide) {
+                slide.classList.add('active');
+                const note = slide.querySelector('.speaker-notes').innerHTML;
+                notesText.innerHTML = note;
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+        counter.innerText = `${currentSlide + 1} / ${slides.length}`;
+
+        prevBtn.style.opacity = currentSlide === 0 ? '0.5' : '1';
+        prevBtn.style.pointerEvents = currentSlide === 0 ? 'none' : 'auto';
+
+        nextBtn.style.opacity = currentSlide === slides.length - 1 ? '0.5' : '1';
+        nextBtn.style.pointerEvents = currentSlide === slides.length - 1 ? 'none' : 'auto';
+    }
+
+    function nextSlide() {
+        if (currentSlide < slides.length - 1) {
+            currentSlide++;
+            updateSlide();
+        }
+    }
+
+    function prevSlide() {
+        if (currentSlide > 0) {
+            currentSlide--;
+            updateSlide();
+        }
+    }
+
+    function toggleNotes() {
+        notesOpen = !notesOpen;
+        if (notesOpen) {
+            notesPanel.classList.add('open');
+            toggleNotesBtn.innerText = 'Ocultar Guion (Teclado: N)';
+        } else {
+            notesPanel.classList.remove('open');
+            toggleNotesBtn.innerText = 'Ver Guion (Teclado: N)';
+        }
+    }
+
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    toggleNotesBtn.addEventListener('click', toggleNotes);
+
+    // Navegación por teclado
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+            nextSlide();
+        } else if (e.key === 'ArrowLeft') {
+            prevSlide();
+        } else if (e.key === 'n' || e.key === 'N') {
+            toggleNotes();
+        }
+    });
+
+    // Inicializar
+    updateSlide();
+</script>
+
+</body>
+</html>
