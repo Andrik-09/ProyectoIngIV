@@ -143,7 +143,6 @@ hide:
 <span class="arrow">→</span>
 </a>
 
-<!-- Semana 8 oculta temporalmente a petición del usuario:
 <a class="week-btn" href="semana8/" style="--i:7">
 <span class="index">08</span>
 <span class="body">
@@ -153,7 +152,6 @@ hide:
 </span>
 <span class="arrow">→</span>
 </a>
--->
 
 
 </div>
