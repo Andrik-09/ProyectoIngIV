@@ -1118,3 +1118,41 @@ body,
 @media (max-width: 600px) {
   .expediente-fields { grid-template-columns: 1fr; }
 }
+
+/* ==========================================================================
+   Insignia de estado (VERIFICADO / HIPÓTESIS / PENDIENTE / NO CUMPLE)
+   ========================================================================== */
+
+.status-badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.status-badge.ok {
+  background-color: var(--text-white);
+  color: var(--bg-black);
+}
+
+.status-badge.hipotesis {
+  background-color: transparent;
+  border: 1px solid var(--text-gray);
+  color: var(--text-gray);
+}
+
+.status-badge.pendiente {
+  background-color: transparent;
+  border: 1px dashed var(--border-color);
+  color: var(--text-gray);
+}
+
+.status-badge.no-cumple {
+  background-color: var(--ibero-red);
+  color: var(--text-white);
+}
