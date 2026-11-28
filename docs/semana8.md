@@ -176,20 +176,37 @@ El cambio de módem no es la única palanca: la mitad de la reducción de ensamb
 
 ## Bloque 6 — Prototipo de aterrizaje para validar con usuarios
 
-En paralelo a la revisión de costos, el equipo construyó un prototipo de baja resolución: una página de aterrizaje real, con la propuesta de valor, el modelo de precio y un formulario para apartar una unidad del lote piloto de 10. El objetivo no es vender todavía, sino medir si una flota mediana da el siguiente paso (dejar sus datos de contacto) frente a la propuesta tal como quedaría frente a un cliente.
+En paralelo a la revisión de costos, el equipo construyó un prototipo de baja resolución: una página de aterrizaje real, con la propuesta de valor, el modelo de precio y un formulario para apartar una unidad del lote piloto de 10. El objetivo no era vender todavía, sino medir si una flota mediana daba el siguiente paso (dejar sus datos de contacto) frente a la propuesta tal como quedaría frente a un cliente.
+
+!!! tip "Actualización (noviembre de 2026): el prototipo ya es el sitio real"
+    Ese prototipo de baja resolución se convirtió en la landing real de Nervik, con el diseño, la calculadora de precio por flota, las preguntas frecuentes y el formulario definitivos — es la que se muestra a continuación. También se construyó la app de monitoreo para la central, publicada en modo demostración. El detalle de cómo se integran ambas con el equipo físico está en la [Semana 9](semana9.md).
+
+### Así se ve hoy: la landing real de Nervik
 
 <iframe
-    src="../recursos/presentaciones/semana8-landing-prototipo.html"
+    src="https://andrik-09.github.io/Nervik/web/"
     width="100%"
     height="650"
     style="border: 1px solid #444; border-radius: 8px;"
-    title="Prototipo de aterrizaje - Semana 8">
+    title="Landing real de Nervik">
 </iframe>
 
-¿No se ve bien el reproductor? [Abre el prototipo en una pestaña nueva](recursos/presentaciones/semana8-landing-prototipo.html){:target="_blank"}.
+¿No se ve bien el reproductor? [Abre la landing en una pestaña nueva](https://andrik-09.github.io/Nervik/web/){:target="_blank"}.
 
-!!! tip "Actualización (noviembre de 2026): el prototipo ya es el sitio real"
-    Este prototipo de baja resolución se convirtió en la landing real de Nervik, publicada en **[andrik-09.github.io/Nervik/web](https://andrik-09.github.io/Nervik/web/)**, con el mismo objetivo (apartar una unidad del piloto sin costo) pero con el diseño, la calculadora de precio por flota, las preguntas frecuentes y el formulario definitivos. También se construyó la app de monitoreo para la central, publicada en modo demostración en **[andrik-09.github.io/Nervik/web/app](https://andrik-09.github.io/Nervik/web/app/)**. El detalle de cómo se integran ambas con el equipo físico está en la [Semana 9](semana9.md).
+### La app de monitoreo (modo demostración)
+
+<iframe
+    src="https://andrik-09.github.io/Nervik/web/app/"
+    width="100%"
+    height="650"
+    style="border: 1px solid #444; border-radius: 8px;"
+    title="App de monitoreo de Nervik - modo demostración">
+</iframe>
+
+¿No se ve bien el reproductor? [Abre la app en una pestaña nueva](https://andrik-09.github.io/Nervik/web/app/){:target="_blank"}.
+
+??? note "Ver el prototipo original de esta semana (referencia histórica)"
+    Esta era la landing de baja resolución con la que se probó la propuesta antes de construir el sitio real: [ábrela en una pestaña nueva](recursos/presentaciones/semana8-landing-prototipo.html){:target="_blank"}.
 
 ## Bloque 7 — Así se ve un expediente (ejemplo ilustrativo)
 
