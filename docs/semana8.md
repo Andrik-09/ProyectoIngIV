@@ -188,6 +188,9 @@ En paralelo a la revisión de costos, el equipo construyó un prototipo de baja 
 
 ¿No se ve bien el reproductor? [Abre el prototipo en una pestaña nueva](recursos/presentaciones/semana8-landing-prototipo.html){:target="_blank"}.
 
+!!! tip "Actualización (noviembre de 2026): el prototipo ya es el sitio real"
+    Este prototipo de baja resolución se convirtió en la landing real de Nervik, publicada en **[andrik-09.github.io/Nervik/web](https://andrik-09.github.io/Nervik/web/)**, con el mismo objetivo (apartar una unidad del piloto sin costo) pero con el diseño, la calculadora de precio por flota, las preguntas frecuentes y el formulario definitivos. También se construyó la app de monitoreo para la central, publicada en modo demostración en **[andrik-09.github.io/Nervik/web/app](https://andrik-09.github.io/Nervik/web/app/)**. El detalle de cómo se integran ambas con el equipo físico está en la [Semana 9](semana9.md).
+
 ## Bloque 7 — Así se ve un expediente (ejemplo ilustrativo)
 
 Dentro del prototipo, la sección "Así se ve un expediente" se apoya en un documento de una página que muestra, con datos ficticios, lo que el dispositivo entrega después de un evento de interferencia: una cronología con sello de tiempo y una firma que invalida el documento si alguien lo modifica después.
@@ -249,6 +252,8 @@ NVK-0003 · firmware 0.4
 **Qué no contiene:** el dispositivo solo escucha el bus J1939, nunca apagó el motor, no envió órdenes al camión y no graba audio ni video — es evidencia, no control.
 
 [Descargar el expediente de ejemplo (PDF)](recursos/archivos/semana8-expediente-ejemplo.pdf){:target="_blank"} · [Descargar la hoja de cálculo completa de la revisión DFM (XLSX)](recursos/archivos/semana8-bom-dfm.xlsx){:target="_blank"}
+
+La landing real de Nervik conserva esta misma idea en su sección **[Qué registra](https://andrik-09.github.io/Nervik/web/#que-registra)**: una cronología de un ataque con inhibidor y una lista explícita de qué registra el equipo y qué no.
 
 ## Conclusión de la semana
 
