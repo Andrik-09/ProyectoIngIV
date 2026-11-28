@@ -153,6 +153,16 @@ hide:
 <span class="arrow">→</span>
 </a>
 
+<a class="week-btn" href="semana9/" style="--i:8">
+<span class="index">09</span>
+<span class="body">
+<span class="label">Semana 9</span>
+<span class="title">Integración, go-to-market y pitch</span>
+<span class="desc">Prototipo de la Fase 1 conectado a la app, economía unitaria, checklist regulatorio, pitch de 3 minutos y guion de la demo.</span>
+</span>
+<span class="arrow">→</span>
+</a>
+
 
 </div>
 
